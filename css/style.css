@@ -1,0 +1,50 @@
+body {
+  padding-top: 50px;
+}
+
+.carregando {
+  color: #ff0000;
+  display:none;
+}
+
+.principal {
+  padding: 20px 15px;
+  text-align: center;
+  background-color: #FFCC99;
+  /*tamanho do quadro*/
+  width: 700px;
+  margin: auto;
+  border-radius: 7px;
+  margin-top: 50px;
+}
+
+.resposta {
+  font-family: sans-serif;
+  font-size: 20px;
+  color:green;
+  text-align: center;
+  border: 2px solid green;
+  border-radius: 20px;
+  background-color: orange;
+  width: 700px;
+  padding-left: 20px;
+  margin: auto;
+}
+
+.login{
+  font-size: 30px;
+  font-family: sans-serif;
+
+}
+
+.form1{
+  font-size: 25px;
+  font-family: sans-serif;
+}
+
+.form-control{
+  /*campo do tamanho dos inputs*/
+  width: 500px;
+}
+
+.error {color: #FF0000;}
