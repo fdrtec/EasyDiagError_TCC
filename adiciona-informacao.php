@@ -1,6 +1,6 @@
 <?php include ('cabecalho.php');?> <!--importa cabeçalho-->
 <?php include ('conecta.php');?> <!--importa conexao BD-->
-<?php include ('banco-informacoes.php');?> <!--importa arquivo de funcoes-->
+<?php include ('banco-informacao.php');?> <!--importa arquivo de funcoes-->
 <?php include ('logica-usuario.php');?>
 <?php include ('class/Informacao.php') ?>
 
@@ -13,7 +13,7 @@
   $informacao->descricao = $_POST['descricao'];
   $informacao->modelo_id = $_POST['modelo_id'];
 
- //usa metodo do banco-informacoes.php
+ //usa metodo do banco-informacao.php
   if(insereInformacao($conexao, $informacao)) { ?>
     <h3><b>A informação foi adicionada com sucesso ao banco de dados!<b></h3><br>
       <p class="text-success">

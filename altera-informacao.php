@@ -1,6 +1,6 @@
 <?php include ('cabecalho.php');?> <!--importa cabeçalho-->
 <?php include ('conecta.php');?> <!--importa conexao BD-->
-<?php include ('banco-informacoes.php');?> <!--importa arquivo de funcoes-->
+<?php include ('banco-informacao.php');?> <!--importa arquivo de funcoes-->
 <?php include ('logica-usuario.php');?>
 <?php include ('class/Informacao.php'); ?>
 

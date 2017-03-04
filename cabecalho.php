@@ -17,8 +17,8 @@
         <div>
           <ul class="nav navbar-nav">
             <li><a href="informacao-formulario.php">Adição de Informações</a></li>
-            <li><a href="informacoes-lista.php">Alterações de Informações</a></li>
-            <li><a href="informacoes-busca.php">Buscador da Biblioteca</a></li>
+            <li><a href="informacao-lista.php">Alterações de Informações</a></li>
+            <li><a href="informacao-busca.php">Buscador da Biblioteca</a></li>
             <li><a href="selecao.php">Select Categorias</a></li>
 
           </ul>

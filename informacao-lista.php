@@ -1,7 +1,7 @@
 <?php
   include("cabecalho.php");
   include("conecta.php");
-  include("banco-informacoes.php");
+  include("banco-informacao.php");
   include ('logica-usuario.php');
 
   verificaUsuario(); ?>
@@ -11,7 +11,8 @@
   <?php } ?>
 
 <?php
-  $informacoes = listaInformacoes($conexao);
+  $informacoes = listaInformacao($conexao);
+  
 ?>
   <table class="table table-striped table-bordered">
 <?php

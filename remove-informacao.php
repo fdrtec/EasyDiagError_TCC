@@ -1,10 +1,10 @@
 <?php include("cabecalho.php"); ?>
 <?php include("conecta.php"); ?>
-<?php include("banco-informacoes.php");
+<?php include("banco-informacao.php");
 
 $id = $_POST['id'];
 removeInformacao($conexao, $id);
-header("Location: informacoes-lista.php?removido=true");
+header("Location: informacao-lista.php?removido=true");
 ?>
 
 

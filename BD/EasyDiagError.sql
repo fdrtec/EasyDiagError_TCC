@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `informacoes`
+-- Estrutura para tabela `informacao`
 --
 
-CREATE TABLE `informacoes` (
+CREATE TABLE `informacao` (
   `id` int(11) NOT NULL,
   `erro` varchar(255) NOT NULL,
   `descricao` varchar(255) NOT NULL,
@@ -34,10 +34,10 @@ CREATE TABLE `informacoes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `informacoes`
+-- Fazendo dump de dados para tabela `informacao`
 --
 
-INSERT INTO `informacoes` (`id`, `erro`, `descricao`, `modelo_id`) VALUES
+INSERT INTO `informacao` (`id`, `erro`, `descricao`, `modelo_id`) VALUES
 (38, 'Falha na impressÃ£o', 'CabeÃ§ote ou cartucho de tinta com injetores (nozzles entupidos)"', 2),
 (45, 'NÃ£o puxa papel', 'Roletes gastos patinam na hora de tracionar o papel da gaveta para o mecanismo da impressora', 2),
 (46, '50', 'problema de aquecimento da unidade fusora', 2),
@@ -52,19 +52,19 @@ INSERT INTO `informacoes` (`id`, `erro`, `descricao`, `modelo_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `modelos`
+-- Estrutura para tabela `modelo`
 --
 
-CREATE TABLE `modelos` (
+CREATE TABLE `modelo` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `modelos`
+-- Fazendo dump de dados para tabela `modelo`
 --
 
-INSERT INTO `modelos` (`id`, `nome`) VALUES
+INSERT INTO `modelo` (`id`, `nome`) VALUES
 (1, 'Laserjet 1100'),
 (2, 'Laserjet 4250'),
 (3, 'Deskjet 1220'),
@@ -103,15 +103,15 @@ INSERT INTO `usuarios` (`id`, `email`, `senha`) VALUES
 --
 
 --
--- Índices de tabela `informacoes`
+-- Índices de tabela `informacao`
 --
-ALTER TABLE `informacoes`
+ALTER TABLE `informacao`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `modelos`
+-- Índices de tabela `modelo`
 --
-ALTER TABLE `modelos`
+ALTER TABLE `modelo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -125,14 +125,14 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de tabela `informacoes`
+-- AUTO_INCREMENT de tabela `informacao`
 --
-ALTER TABLE `informacoes`
+ALTER TABLE `informacao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 --
--- AUTO_INCREMENT de tabela `modelos`
+-- AUTO_INCREMENT de tabela `modelo`
 --
-ALTER TABLE `modelos`
+ALTER TABLE `modelo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de tabela `usuarios`

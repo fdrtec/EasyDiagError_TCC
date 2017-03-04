@@ -2,7 +2,7 @@
       include('conecta.php');
       include ('logica-usuario.php');
       //include ('banco-categoria.php');
-      include ('banco-informacoes.php');
+      include ('banco-informacao.php');
 
 $id =  $_GET['id'];
 $informacao = buscaInformacao($conexao, $id);

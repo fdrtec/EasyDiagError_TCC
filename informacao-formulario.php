@@ -4,7 +4,7 @@
       include ('banco-modelo.php');
 
       verificaUsuario();
-      $modelos = listaModelos($conexao);
+      $modelo = listamodelo($conexao);
  ?>
 
 <h3><b>Formulário de Inserção para novas
@@ -13,10 +13,10 @@ Informações de erros das Impressoras HP<b></h3><br><br>
   <form action="adiciona-informacao.php" method="POST">
     <table class="table">
       <tr>
-        <td>Modelos</td>
+        <td>modelo</td>
         <td>
           <select name="modelo_id">
-            <?php foreach ($modelos as $modelo) :?>
+            <?php foreach ($modelo as $modelo) :?>
               <option value="<?=$modelo['id']?>"><?=$modelo['nome']?></option>
             <?php endforeach ?>
           </select>

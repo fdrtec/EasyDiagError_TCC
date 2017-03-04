@@ -5,7 +5,7 @@
   include ('logica-usuario.php');
 
   verificaUsuario();
-  $modelos = listaModelos($conexao);
+  $modelos = listaModelo($conexao);
  ?>
 
  <h3><b>Busca de informações</b></h3>

@@ -60,10 +60,10 @@ INSERT INTO `fabricante` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `informacoes`
+-- Estrutura da tabela `informacao`
 --
 
-CREATE TABLE `informacoes` (
+CREATE TABLE `informacao` (
   `id` int(11) NOT NULL,
   `erro` varchar(255) NOT NULL,
   `descricao` varchar(255) NOT NULL,
@@ -71,10 +71,10 @@ CREATE TABLE `informacoes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `informacoes`
+-- Extraindo dados da tabela `informacao`
 --
 
-INSERT INTO `informacoes` (`id`, `erro`, `descricao`, `modelo_id`) VALUES
+INSERT INTO `informacao` (`id`, `erro`, `descricao`, `modelo_id`) VALUES
 (38, 'Falha na impressÃ£o', 'CabeÃ§ote ou cartucho de tinta com injetores (nozzles entupidos)"', 2),
 (45, 'NÃ£o puxa papel', 'Roletes gastos patinam na hora de tracionar o papel da gaveta para o mecanismo da impressora', 2),
 (46, '50', 'problema de aquecimento da unidade fusora', 2),
@@ -89,20 +89,20 @@ INSERT INTO `informacoes` (`id`, `erro`, `descricao`, `modelo_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `modelos`
+-- Estrutura da tabela `modelo`
 --
 
-CREATE TABLE `modelos` (
+CREATE TABLE `modelo` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `fab_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `modelos`
+-- Extraindo dados da tabela `modelo`
 --
 
-INSERT INTO `modelos` (`id`, `nome`, `fab_id`) VALUES
+INSERT INTO `modelo` (`id`, `nome`, `fab_id`) VALUES
 (1, 'Laserjet 1100', NULL),
 (2, 'Laserjet 4250', NULL),
 (3, 'Deskjet 1220', NULL),
@@ -189,15 +189,15 @@ ALTER TABLE `fabricante`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `informacoes`
+-- Indexes for table `informacao`
 --
-ALTER TABLE `informacoes`
+ALTER TABLE `informacao`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `modelos`
+-- Indexes for table `modelo`
 --
-ALTER TABLE `modelos`
+ALTER TABLE `modelo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fab_id` (`fab_id`);
 
@@ -245,14 +245,14 @@ ALTER TABLE `equipamento`
 ALTER TABLE `fabricante`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT for table `informacoes`
+-- AUTO_INCREMENT for table `informacao`
 --
-ALTER TABLE `informacoes`
+ALTER TABLE `informacao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
--- AUTO_INCREMENT for table `modelos`
+-- AUTO_INCREMENT for table `modelo`
 --
-ALTER TABLE `modelos`
+ALTER TABLE `modelo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `modelo_info`
@@ -279,17 +279,17 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Limitadores para a tabela `modelos`
+-- Limitadores para a tabela `modelo`
 --
-ALTER TABLE `modelos`
+ALTER TABLE `modelo`
   ADD CONSTRAINT `fab_id` FOREIGN KEY (`fab_id`) REFERENCES `fabricante` (`id`);
 
 --
 -- Limitadores para a tabela `modelo_info`
 --
 ALTER TABLE `modelo_info`
-  ADD CONSTRAINT `modelo_info_ibfk_1` FOREIGN KEY (`modelo_id`) REFERENCES `modelos` (`id`),
-  ADD CONSTRAINT `modelo_info_ibfk_2` FOREIGN KEY (`info_id`) REFERENCES `informacoes` (`id`);
+  ADD CONSTRAINT `modelo_info_ibfk_1` FOREIGN KEY (`modelo_id`) REFERENCES `modelo` (`id`),
+  ADD CONSTRAINT `modelo_info_ibfk_2` FOREIGN KEY (`info_id`) REFERENCES `informacao` (`id`);
 
 --
 -- Limitadores para a tabela `tipo`

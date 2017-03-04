@@ -2,7 +2,7 @@
   include('cabecalho.php');
   include('conecta.php');
   include ('logica-usuario.php');
-  include("banco-informacoes.php");
+  include("banco-informacao.php");
 
   verificaUsuario();
 
@@ -19,8 +19,8 @@
     var_dump($filtros);
   }
 
-  // $sql = "SELECT * FROM informacoes";
-  $sql = "select i.*, m.nome as modelo_nome from informacoes as i join modelos as m on m.id = i.modelo_id";
+  // $sql = "SELECT * FROM informacao";
+  $sql = "select i.*, m.nome as modelo_nome from informacao as i join modelo as m on m.id = i.modelo_id";
   if (count($filtros) > 0) {
   	// opa, tem filtros, entao temos que adicionar no sql
   	$sql .= " WHERE " . implode(' AND ', $filtros);
@@ -31,7 +31,7 @@
 
 
   // $resultado = mysqli_query($conexao,
-  // "select * from informacoes where modelo_id = $modelo_id");
+  // "select * from informacao where modelo_id = $modelo_id");
   $resultado = mysqli_query($conexao, $sql);
   ?>
   <table class="table table-striped table-bordered">
