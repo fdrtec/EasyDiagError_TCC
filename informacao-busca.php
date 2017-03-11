@@ -1,5 +1,5 @@
 <?php
-  include("cabecalho.php");
+  include("view/cabecalho.php");
   include("conecta.php");
   include ('banco-modelo.php');
   include ('logica-usuario.php');
@@ -39,4 +39,4 @@
 
  </form>
 
-<?php include("rodape.php"); ?>
+<?php include("view/rodape.php"); ?>

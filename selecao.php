@@ -1,5 +1,5 @@
 <?php
-include("cabecalho.php");
+include("view/cabecalho.php");
 include("conecta.php");
 ?>
 
@@ -50,4 +50,4 @@ include("conecta.php");
 </script>
 
 
-<?php include("rodape.php");?>
+<?php include("view/rodape.php");?>

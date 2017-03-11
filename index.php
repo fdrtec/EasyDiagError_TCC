@@ -1,5 +1,5 @@
 <?php
-  include ('cabecalho.php');
+  include ('view/cabecalho.php');
   include ('logica-usuario.php');
 
   if(isset($_GET["logout"]) && $_GET["logout"]==true){?>
@@ -55,4 +55,4 @@ else { ?>
 <?php } ?>
 <a href="novoUsuario.php">Criar Novo Usuário</a>
 
-<?php include ('rodape.php'); ?>
+<?php include ('view/rodape.php'); ?>

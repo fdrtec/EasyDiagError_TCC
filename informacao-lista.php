@@ -1,5 +1,5 @@
 <?php
-  include("cabecalho.php");
+  include("view/cabecalho.php");
   include("conecta.php");
   include("banco-informacao.php");
   include ('logica-usuario.php');
@@ -12,9 +12,14 @@
 
 <?php
   $informacoes = listaInformacao($conexao);
-  
+
 ?>
   <table class="table table-striped table-bordered">
+    <tr style="background: black; color:white">
+      <td><b>Modelo</b></td>
+      <td><b>Erro</b></td>
+      <td><b>Descrição</b></td>
+    </tr>
 <?php
   foreach($informacoes as $informacao):
 ?>
@@ -35,4 +40,4 @@
  ?>
  </table>
 
-<?php include("rodape.php");?>
+<?php include("view/rodape.php");?>

@@ -1,4 +1,4 @@
-<?php include ('cabecalho.php');?> <!--importa cabeçalho-->
+<?php include ('view/cabecalho.php');?> <!--importa cabeçalho-->
 <?php include ('conecta.php');?> <!--importa conexao BD-->
 <?php include ('banco-informacao.php');?> <!--importa arquivo de funcoes-->
 <?php include ('logica-usuario.php');?>
@@ -28,4 +28,4 @@
     <?php
     }
     ?>
-<?php include ('rodape.php'); //importa rodape ?>
+<?php include ('view/rodape.php'); //importa rodape ?>
