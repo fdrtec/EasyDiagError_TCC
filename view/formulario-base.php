@@ -2,7 +2,7 @@
     <td>modelo</td>
     <td>
       <select name="modelo_id">
-        <?php foreach ($modelo as $modelo) :?>
+        <?php foreach ($modelos as $modelo) :?>
           <option value="<?=$modelo['id']?>"><?=$modelo['nome']?></option>
         <?php endforeach ?>
       </select>

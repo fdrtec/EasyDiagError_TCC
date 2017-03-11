@@ -6,7 +6,9 @@
 
 $id =  $_GET['id'];
 $informacao = buscaInformacao($conexao, $id);
-$modelo = listamodelo($conexao);
+$modelo = $informacao['modelo_id'];
+$modelos = listamodelo($conexao);
+var_dump($modelo);
 
 
 verificaUsuario();

@@ -4,7 +4,7 @@
       include ('banco-modelo.php');
 
       verificaUsuario();
-      $modelo = listamodelo($conexao);
+      $modelos = listamodelo($conexao);
       $informacao = array('erro' => '','descricao' => '');
  ?>
 
