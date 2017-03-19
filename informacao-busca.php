@@ -4,6 +4,8 @@
   include ('banco-modelo.php');
   include ('logica-usuario.php');
 
+
+
   verificaUsuario();
   $modelos = listaModelo($conexao);
  ?>
@@ -16,7 +18,7 @@
       <td>
         <select class="form-control" name="modelo_id">
           <?php foreach ($modelos as $modelo): ?>
-            <option value="<?=$modelo['id']?>"><?=$modelo['nome']?></option>
+            <option value="<?=$modelo->id?>"><?=$modelo->nome?></option>
           <?php endforeach ?>
         </select>
       </td>

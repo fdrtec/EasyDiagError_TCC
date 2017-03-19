@@ -1,21 +1,21 @@
-<?php include('view/cabecalho.php');
-      include('conecta.php');
-      include ('logica-usuario.php');
-      include ('banco-informacao.php');
-      include ('banco-modelo.php');
+<?php include('view/cabecalho.php');     
+      include('banco-informacao.php');
+      include('banco-modelo.php');
+      //include('logica-usuario.php');
+
 
 $id =  $_GET['id'];
 $informacao = buscaInformacao($conexao, $id);
-//$modelos = buscaModelo($conexao);
+$modelos = listaModelo($conexao);
 
-verificaUsuario();
+//verificaUsuario();
  ?>
 
 <h3><b>Formulário de Alteração de
 Informação de erros<b></h3><br><br>
 
   <form action="altera-informacao.php" method="POST">
-    <input type="hidden" name="id" value="<?=$informacao['id']?>">
+    <input type="hidden" name="id" value="<?=$informacao->id?>">
     <table class="table">
 
     <?php include('view/formulario-base.php') ?>

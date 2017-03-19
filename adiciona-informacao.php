@@ -1,17 +1,19 @@
-<?php include ('view/cabecalho.php');?> <!--importa cabeçalho-->
-<?php include ('conecta.php');?> <!--importa conexao BD-->
-<?php include ('banco-informacao.php');?> <!--importa arquivo de funcoes-->
-<?php include ('logica-usuario.php');?>
-<?php include ('class/Informacao.php') ?>
+<?php include ('view/cabecalho.php');      
+      include ('banco-informacao.php');
+      include ('logica-usuario.php');
+      include ('class/Informacao.php');
+      include ('class/Modelo.php');
 
-<?php
+
   verificaUsuario();
 
-  $informacao = new Informacao();
+  $categoria = new Modelo();
+  $categoria->id = $_POST['modelo_id'];
 
+  $informacao = new Informacao();
   $informacao->erro = $_POST['erro']; //adiciona valor do campo erro ao atributo erro do objeto informação
   $informacao->descricao = $_POST['descricao'];
-  $informacao->modelo_id = $_POST['modelo_id'];
+  $informacao->modelo = $modelo;
 
  //usa metodo do banco-informacao.php
   if(insereInformacao($conexao, $informacao)) { ?>

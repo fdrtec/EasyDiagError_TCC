@@ -1,16 +1,20 @@
 <?php include ('view/cabecalho.php');
-      include ('conecta.php');
       include ('banco-informacao.php');
-      include ('logica-usuario.php');
-      include ('class/Informacao.php'); ?>
 
-<?php
-  verificaUsuario();
+      include ('class/Informacao.php');
+      include ('class/Modelo.php');
+      //include ('logica-usuario.php');
+      
+  //verificaUsuario();
+
+  $modelo = new Modelo();
+  $modelo->id = $_POST['modelo_id'];
 
   $informacao = new Informacao();
   $informacao->id = $_POST['id'];
   $informacao->erro = $_POST['erro'];
   $informacao->descricao = $_POST['descricao'];
+  $informacao->modelo = $categoria;
 
   if(alteraInformacao($conexao, $informacao)) { ?>
     <h3><b>A informação foi alterada com sucesso no banco de dados!<b></h3><br>

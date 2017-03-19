@@ -24,7 +24,7 @@
   foreach($informacoes as $informacao):
 ?>
     <tr>
-      <td><?= $informacao->modelo_nome ?></td>
+      <td><?= $informacao->modelo->nome ?></td>
       <td><?= $informacao->erro ?></td>
       <td><?= $informacao->descricao ?></td>
       <td><a class="btn btn-primary"
