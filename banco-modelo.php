@@ -10,4 +10,9 @@ function listaModelo($conexao){
   return $modelos;
 }
 
-?>
+
+// function buscaModelo($conexao, $id){
+//   $query = "select * from modelo where id = {$id}";
+//   $resultado = mysqli_query($conexao, $query);
+//   return mysqli_fetch_assoc($resultado);
+// }

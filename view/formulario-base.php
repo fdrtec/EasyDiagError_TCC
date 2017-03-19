@@ -1,9 +1,15 @@
   <tr>
     <td>modelo</td>
     <td>
-      <select name="modelo_id">
-        <?php foreach ($modelos as $modelo) :?>
-          <option value="<?=$modelo['id']?>"><?=$modelo['nome']?></option>
+
+      <select name="modelo_id" class="form-control">
+
+        <?php foreach ($modelos as $modelo) :          
+          $modeloSelecionado = $informacao['modelo_id'] == $modelo['id'];
+          $selecaoMoodelo = $modeloSelecionado ? "selected='selected'" : "";?>
+
+          <option value="<?=$modelo['id']?>"><?=$selecaoModelo?><?=$modelo['nome']?></option>
+
         <?php endforeach ?>
       </select>
     </td>

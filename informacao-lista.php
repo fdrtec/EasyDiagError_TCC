@@ -24,13 +24,15 @@
   foreach($informacoes as $informacao):
 ?>
     <tr>
-      <td><?= $informacao["modelo_nome"] ?></td>
-      <td><?= $informacao["erro"] ?></td>
-      <td><?= $informacao["descricao"] ?></td>
-      <td><a class="btn btn-primary" href="informacao-altera-formulario.php?id=<?=$informacao['id']?>">Alterar</a></td>
+      <td><?= $informacao->modelo_nome ?></td>
+      <td><?= $informacao->erro ?></td>
+      <td><?= $informacao->descricao ?></td>
+      <td><a class="btn btn-primary"
+        href="informacao-altera-formulario.php?
+        id=<?=$informacao->id ?>">Alterar</a></td>
       <td>
         <form action="remove-informacao.php" method="post">
-          <input type="hidden" name="id" value="<?=$informacao['id']?>"/>
+          <input type="hidden" name="id" value="<?=$informacao->id?>"/>
           <button class="btn btn-danger">remover</button>
         </form>
       </td>

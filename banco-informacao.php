@@ -1,4 +1,6 @@
 <?php
+  //include_once('conecta.php');
+  include_once('class/Informacao.php');
 
 function insereInformacao($conexao, Informacao $informacao){
   $query = "insert into informacao(erro, descricao, modelo_id) values (
@@ -6,14 +8,26 @@ function insereInformacao($conexao, Informacao $informacao){
   return mysqli_query($conexao, $query); // comando para abrir conexao e gravar dados na tabela
 }
 function alteraInformacao($conexao, Informacao $informacao){
-  $query = "update informacao set erro = '{$informacao->erro}', descricao ='{$informacao->descricao}' where id = '{$informacao->id}'"; //variavel para adicionar valores a tabela informacao
+  $query = "update informacao set erro = '{$informacao->erro}', descricao ='{$informacao->descricao}',
+  modelo_id = '{$informacao->modelo_id}'  where id = '{$informacao->id}'"; //variavel para adicionar valores a tabela informacao
   return mysqli_query($conexao, $query); // comando para abrir conexao e gravar dados na tabela
 }
 
 function listaInformacao($conexao){
+
   $informacoes = array(); // versoes mais novas $informacao = [];
-  $resultado = mysqli_query($conexao, "select i.*, m.nome as modelo_nome from informacao as i join modelo as m on i.modelo_id = m.id");
-  while ($informacao = mysqli_fetch_assoc($resultado)) {
+  $resultado = mysqli_query($conexao, "select i.*, m.nome as modelo_nome from informacao as i
+                                      join modelo as m on m.id = i.modelo_id");
+
+  while ($informacao_array = mysqli_fetch_assoc($resultado)) {
+
+    $informacao = new Informacao();
+
+    $informacao->id =  $informacao_array['id'];
+    $informacao->erro =  $informacao_array['erro'];
+    $informacao->descricao =  $informacao_array['descricao'];
+    $informacao->modelo_nome =  $informacao_array['modelo_nome'];
+
     array_push($informacoes, $informacao);
   }
   return $informacoes;

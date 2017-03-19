@@ -6,10 +6,7 @@
 
 $id =  $_GET['id'];
 $informacao = buscaInformacao($conexao, $id);
-$modelo = $informacao['modelo_id'];
-$modelos = listamodelo($conexao);
-var_dump($modelo);
-
+//$modelos = buscaModelo($conexao);
 
 verificaUsuario();
  ?>
@@ -20,6 +17,7 @@ Informação de erros<b></h3><br><br>
   <form action="altera-informacao.php" method="POST">
     <input type="hidden" name="id" value="<?=$informacao['id']?>">
     <table class="table">
+
     <?php include('view/formulario-base.php') ?>
 
       <tr>
