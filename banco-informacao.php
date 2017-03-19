@@ -1,7 +1,29 @@
 <?php
   require_once("conecta.php");
-  include_once('class/Informacao.php');
-  include_once('class/Modelo.php');
+  require_once('class/Informacao.php');
+  require_once('class/Modelo.php');
+
+  function listaInformacao($conexao){
+
+    $informacoes = array(); // versoes mais novas $informacao = [];
+    $resultado = mysqli_query($conexao, "select i.*, m.nome as modelo_nome from informacao as i
+                                        join modelo as m on m.id=i.modelo_id");
+
+    while ($informacao_array = mysqli_fetch_assoc($resultado)) {
+
+      $modelo = new Modelo();
+      $modelo->nome = $informacao_array['modelo_nome'];
+
+      $informacao = new Informacao();
+      $informacao->id =  $informacao_array['id'];
+      $informacao->erro =  $informacao_array['erro'];
+      $informacao->descricao =  $informacao_array['descricao'];
+      $informacao->modelo = $modelo;
+
+      array_push($informacoes, $informacao);
+    }
+    return $informacoes;
+  }
 
 
 function insereInformacao($conexao, Informacao $informacao){
@@ -18,27 +40,7 @@ function alteraInformacao($conexao, Informacao $informacao){
   return mysqli_query($conexao, $query); // comando para abrir conexao e gravar dados na tabela
 }
 
-function listaInformacao($conexao){
 
-  $informacoes = array(); // versoes mais novas $informacao = [];
-  $resultado = mysqli_query($conexao, "select i.*, m.nome as modelo_nome from informacao as i
-                                      join modelo as m on m.id = i.modelo_id");
-
-  while ($informacao_array = mysqli_fetch_assoc($resultado)) {
-
-    $modelo = new Modelo();
-    $modelo->nome = $informacao_array['modelo_nome'];
-
-    $informacao = new Informacao();
-    $informacao->id =  $informacao_array['id'];
-    $informacao->erro =  $informacao_array['erro'];
-    $informacao->descricao =  $informacao_array['descricao'];
-    $informacao->modelo = $modelo;
-
-    array_push($informacoes, $informacao);
-  }
-  return $informacoes;
-}
 
 function buscaInformacao($conexao, $id){
   $query = "select * from informacao where id = {$id}";

@@ -1,10 +1,12 @@
 <?php
-  include("view/cabecalho.php");
-  include("conecta.php");
-  include("banco-informacao.php");
-  include ('logica-usuario.php');
+  require_once("view/cabecalho.php");
+  require_once("banco-informacao.php");
+  require_once("banco-modelo.php");
 
-  verificaUsuario(); ?>
+  //include ('logica-usuario.php');
+
+  //verificaUsuario();
+  ?>
 
 <?php if(array_key_exists("removido", $_GET) && $_GET['removido']=='true'){ ?>
   <p class="alert-success">informação apagada com sucesso</p>

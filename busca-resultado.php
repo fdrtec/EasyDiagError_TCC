@@ -1,8 +1,8 @@
 <?php
-  include('view/cabecalho.php');
-  include('conecta.php');
-  include ('logica-usuario.php');
-  include("banco-informacao.php");
+  require_once('view/cabecalho.php');
+  require_once('conecta.php');
+  require_once('logica-usuario.php');
+  require_once("banco-informacao.php");
 
   verificaUsuario();
 
@@ -11,24 +11,24 @@
   if (!empty($_POST['modelo_id'])) {
   	$modelo_id = trim($_POST['modelo_id']);
   	$filtros['modelo_id'] = "modelo_id LIKE '%$modelo_id%'";
-
-  }
-  if (!empty($_POST['busca'])) {
-  	$descricao = trim($_POST['busca']);
-  	$filtros['descricao'] = "descricao LIKE '%$descricao%''";
-    var_dump($filtros);
   }
 
-  // $sql = "SELECT * FROM informacao";
-  $sql = "select i.*, m.nome as modelo_nome from informacao as i join modelo as m on m.id = i.modelo_id";
+  if (!empty($_POST['descricao'])) {
+  	$descricao = trim($_POST['descricao']);
+    $filtros['descricao'] = "descricao LIKE '%$descricao%'";
+
+  }
+  if (!empty($_POST['erro'])) {
+  	$erro = trim($_POST['erro']);
+    $filtros['erro'] = "erro LIKE '%$erro%'";
+  }
+
+  $sql = "select i.*, m.nome as modelo_nome from informacao as i
+  join modelo as m on m.id = i.modelo_id";
   if (count($filtros) > 0) {
-  	// opa, tem filtros, entao temos que adicionar no sql
-  	$sql .= " WHERE " . implode(' AND ', $filtros);
+  // opa, tem filtros, entao temos que adicionar no sql
+  $sql .= " WHERE " . implode(' AND ', $filtros);
   }
-  //var_dump($sql);
-
-
-
 
   // $resultado = mysqli_query($conexao,
   // "select * from informacao where modelo_id = $modelo_id");

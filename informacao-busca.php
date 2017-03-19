@@ -10,7 +10,7 @@
   $modelos = listaModelo($conexao);
  ?>
 
- <h3><b>Busca de informações</b></h3>
+ <h3><b>Busca de informações por campo</b></h3>
 
  <form action="busca-resultado.php" method="post">
    <table>
@@ -33,12 +33,19 @@
  <form action="busca-resultado.php" method="post">
    <table>
      <tr>
-       <td>Digite uma palavra:</td>
-       <td><input class="form-control" type="text" name="busca"</td>
-       <td><button type="submit" class="btn btn-primary">Buscar</button></td>
+       <td><input class="form-control" type="text" name="erro"</td>
+       <td><button type="submit" class="btn btn-primary">Buscar por Erro</button></td>
      </tr>
    </table>
 
  </form>
+ <form action="busca-resultado.php" method="post">
+   <table>
+     <tr>
+       <td><input class="form-control" type="text" name="descricao"</td>
+       <td><button type="submit" class="btn btn-primary">Buscar por Descrição</button></td>
+     </tr>
+   </table>
 
+ </form>
 <?php include("view/rodape.php"); ?>

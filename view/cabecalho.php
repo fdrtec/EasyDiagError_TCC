@@ -2,7 +2,8 @@
   <head>
     <meta charset="utf-8">
     <title>EasyDiagError</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
 

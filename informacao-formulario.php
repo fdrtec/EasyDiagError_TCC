@@ -1,22 +1,18 @@
-<?php include('view/cabecalho.php');
-      include('conecta.php');
-      include ('logica-usuario.php');
-      include ('banco-informacao.php');
-      include ('banco-modelo.php');
-      //include('class/Informacao.php');
-      //include('class/Modelo.php');
-
+<?php require_once('view/cabecalho.php');
+      require_once('logica-usuario.php');
+      require_once('banco-modelo.php');
+      require_once('class/Informacao.php');
+      require_once('class/Modelo.php');
 
       verificaUsuario();
 
-      $modelos = listaModelo($conexao);
-
-      $modelo = new modelo();
+      $modelo = new Modelo();
       $modelo->id = 1;
 
-      $informacao = new informacao();
+      $informacao = new Informacao();
       $informacao->modelo = $modelo;
 
+      $modelos = listaModelo($conexao);
  ?>
 
 <h3><b>Formulário de Inserção para novas
