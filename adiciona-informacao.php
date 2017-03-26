@@ -3,6 +3,8 @@
       require_once('logica-usuario.php');
       require_once('class/Informacao.php');
       require_once('class/Modelo.php');
+      require_once('class/Fabricante.php');
+
 
 
   verificaUsuario();
@@ -10,10 +12,14 @@
   $modelo = new Modelo();
   $modelo->id = $_POST['modelo_id'];
 
+  $fabricante = new Fabricante();
+  $fabricante->id = $_POST['fabricante_id'];
+
   $informacao = new Informacao();
   $informacao->erro = $_POST['erro'];
   $informacao->descricao = $_POST['descricao'];
   $informacao->modelo = $modelo;
+  $informacao->fabricante = $fabricante;
 
  //Chama metodo do banco-informacao.php
   if(insereInformacao($conexao, $informacao)) { ?>
@@ -21,7 +27,8 @@
       <p class="text-success">
         Descrição do Erro: <?= $informacao->erro; ?><br>
         Informação: <?= $informacao->descricao; ?><br>
-        Modelo: <?= $informacao->modelo->id; ?></p>
+        Modelo: <?= $informacao->modelo->id; ?><br>
+        Fabricante: <?=$informacao->fabricante->id; ?></p>
 
   <?php } else {
       $msg = mysqli_error($conexao);

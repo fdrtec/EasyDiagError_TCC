@@ -4,7 +4,7 @@
       <select class="form-control" name="fabricante_id">
         <?php foreach ($fabricantes as $fabricante):
           $fabricanteSelecionado = $informacao->fabricante->id == $fabricante->id;
-          $selecaoFabricante = $fabricanteSelecionado ? "selected= 'selected'" : "";?>
+          $selecaoFabricante = $fabricanteSelecionado ? "selected='selected'" : "";?>
 
           <option value="<?=$fabricante->id?>"<?=$selecaoFabricante?>><?=$fabricante->nome?></option>
         <?php  endforeach ?>

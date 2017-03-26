@@ -34,15 +34,15 @@
 
 
 function insereInformacao($conexao, Informacao $informacao){
-  $query = "insert into informacao(erro, descricao, modelo_id) values (
-    '{$informacao->erro}','{$informacao->descricao}','{$informacao->modelo->id}')"; //variavel para adicionar valores a tabela informacao
+  $query = "insert into informacao(erro, descricao, modelo_id, fabricante_id) values (
+    '{$informacao->erro}','{$informacao->descricao}','{$informacao->modelo->id}','{$informacao->fabricante->id}')"; //variavel para adicionar valores a tabela informacao
 
   return mysqli_query($conexao, $query); // comando para abrir conexao e gravar dados na tabela
 }
 
 function alteraInformacao($conexao, Informacao $informacao){
   $query = "update informacao set erro = '{$informacao->erro}', descricao ='{$informacao->descricao}',
-  modelo_id = '{$informacao->modelo->id}'  where id = '{$informacao->id}'"; //variavel para adicionar valores a tabela informacao
+  modelo_id = '{$informacao->modelo->id}', fabricante_id = '{$informacao->fabricante->id}'  where id = '{$informacao->id}'"; //variavel para adicionar valores a tabela informacao
 
   return mysqli_query($conexao, $query); // comando para abrir conexao e gravar dados na tabela
 }
@@ -57,11 +57,15 @@ function buscaInformacao($conexao, $id){
   $modelo = new Modelo();
   $modelo->id = $informacao_buscada['modelo_id'];
 
+  $fabricante = new Fabricante();
+  $fabricante->id = $informacao_buscada['fabricante_id'];
+
   $informacao = new Informacao();
   $informacao->id = $informacao_buscada['id'];
   $informacao->erro = $informacao_buscada['erro'];
   $informacao->descricao = $informacao_buscada['descricao'];
   $informacao->modelo = $modelo;
+  $informacao->fabricante = $fabricante;
 
   return $informacao;
 

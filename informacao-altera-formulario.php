@@ -1,12 +1,15 @@
-<?php include('view/cabecalho.php');     
+<?php include('view/cabecalho.php');
       include('banco-informacao.php');
       include('banco-modelo.php');
+      include('banco-fabricante.php');
+
       //include('logica-usuario.php');
 
 
 $id =  $_GET['id'];
 $informacao = buscaInformacao($conexao, $id);
 $modelos = listaModelo($conexao);
+$fabricantes = listaFabricante($conexao);
 
 //verificaUsuario();
  ?>
