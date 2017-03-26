@@ -2,23 +2,30 @@
   require_once("conecta.php");
   require_once('class/Informacao.php');
   require_once('class/Modelo.php');
+  require_once('class/Fabricante.php');
 
   function listaInformacao($conexao){
 
     $informacoes = array(); // versoes mais novas $informacao = [];
-    $resultado = mysqli_query($conexao, "select i.*, m.nome as modelo_nome from informacao as i
-                                        join modelo as m on m.id=i.modelo_id");
+    $resultado = mysqli_query($conexao, "select i.*, m.nome as modelo_nome, f.nome as fabricante_nome from informacao i
+                                          inner join modelo as m on m.id=i.modelo_id
+                                          inner join fabricante as f on f.id=i.fabricante_id"
+                                      );
 
     while ($informacao_array = mysqli_fetch_assoc($resultado)) {
 
       $modelo = new Modelo();
       $modelo->nome = $informacao_array['modelo_nome'];
 
+      $fabricante = new Fabricante();
+      $fabricante->nome = $informacao_array['fabricante_nome'];
+
       $informacao = new Informacao();
       $informacao->id =  $informacao_array['id'];
       $informacao->erro =  $informacao_array['erro'];
       $informacao->descricao =  $informacao_array['descricao'];
       $informacao->modelo = $modelo;
+      $informacao->fabricante = $fabricante;
 
       array_push($informacoes, $informacao);
     }

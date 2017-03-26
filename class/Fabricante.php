@@ -1,5 +1,5 @@
 <?php
-  class{
+  class Fabricante{
     public $id;
     public $nome;
   }
