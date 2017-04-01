@@ -1,8 +1,9 @@
 <?php require_once('view/cabecalho.php');
-      require_once('banco-informacao.php');
       include ('logica-usuario.php');
 
   verificaUsuario();
+
+  $informacaoDao = new InformacaoDao($conexao);
 
   $modelo = new Modelo();
   $modelo->id = $_POST['modelo_id'];
@@ -19,7 +20,7 @@
   $informacao->fabricante = $fabricante;
 
 
-  if(alteraInformacao($conexao, $informacao)) { ?>
+  if($informacaoDao->alteraInformacao($informacao)) { ?>
     <h3><b>A informação foi alterada com sucesso no banco de dados!<b></h3><br>
       <p class="text-success">
         Descrição do Erro: <?= $informacao->erro; ?><br>

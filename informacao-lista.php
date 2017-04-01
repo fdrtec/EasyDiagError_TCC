@@ -1,20 +1,19 @@
 <?php
   require_once("view/cabecalho.php");
-  require_once("banco-informacao.php");
   require_once("banco-modelo.php");
 
   include ('logica-usuario.php');
   verificaUsuario();
-  ?>
 
-<?php if(array_key_exists("removido", $_GET) && $_GET['removido']=='true'){ ?>
+ if(array_key_exists("removido", $_GET) && $_GET['removido']=='true'){ ?>
   <p class="alert-success">informação apagada com sucesso</p>
-  <?php } ?>
 
-<?php
-  $informacoes = listaInformacao($conexao);
+  <?php }
 
+  $informacaoDao = new InformacaoDao($conexao);
+  $informacoes = $informacaoDao->listaInformacao();
 ?>
+
   <table class="table table-striped table-bordered">
     <tr style="background: black; color:white">
       <td><b>Modelo</b></td>
@@ -23,9 +22,8 @@
       <td><b>Solução</b></td>
       <td><b>Alteração</b></td>
       <td><b>Remoção</b></td>
-
-
     </tr>
+
 <?php
   foreach($informacoes as $informacao):
 ?>

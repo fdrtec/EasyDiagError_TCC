@@ -1,13 +1,13 @@
 <?php include('view/cabecalho.php');
-      include('banco-informacao.php');
       include('banco-modelo.php');
       include('banco-fabricante.php');
-
       include('logica-usuario.php');
 
 
+$informacaoDao = new InformacaoDao($conexao);
+
 $id =  $_GET['id'];
-$informacao = buscaInformacao($conexao, $id);
+$informacao = $informacaoDao->buscaInformacao($id);
 $modelos = listaModelo($conexao);
 $fabricantes = listaFabricante($conexao);
 

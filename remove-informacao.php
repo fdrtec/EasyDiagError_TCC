@@ -1,12 +1,10 @@
-<?php include("cabecalho.php"); ?>
-<?php include("conecta.php"); ?>
-<?php include("banco-informacao.php");
+<?php require_once("view/cabecalho.php");
+
+$informacaoDao = new InformacaoDao($conexao);
 
 $id = $_POST['id'];
-removeInformacao($conexao, $id);
+$informacaoDao->removeInformacao($id);
 header("Location: informacao-lista.php?removido=true");
 ?>
-
-
 
 <?php include("rodape.php");?>

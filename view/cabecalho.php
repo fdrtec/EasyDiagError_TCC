@@ -3,6 +3,7 @@
 spl_autoload_register(function($nomeDaclasse){
   require_once("class/".$nomeDaclasse.".php");
 });
+require_once("conecta.php");
 
 ?>
 <html>
@@ -30,13 +31,8 @@ spl_autoload_register(function($nomeDaclasse){
             <li><a href="selecao.php">Select Categorias</a></li>
 
           </ul>
-
         </div>
-
-
       </div>
-
-
     </div>
 
 

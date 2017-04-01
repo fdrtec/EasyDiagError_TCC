@@ -1,10 +1,9 @@
 <?php require_once('view/cabecalho.php');
-      require_once('banco-informacao.php');
-      require_once('logica-usuario.php');  
-
-
+      require_once('logica-usuario.php');
 
   verificaUsuario();
+
+  $informacaoDao = new InformacaoDao($conexao);
 
   $modelo = new Modelo();
   $modelo->id = $_POST['modelo_id'];
@@ -19,8 +18,7 @@
   $informacao->modelo = $modelo;
   $informacao->fabricante = $fabricante;
 
- //Chama metodo do banco-informacao.php
-  if(insereInformacao($conexao, $informacao)) { ?>
+  if($informacaoDao->insereInformacao($informacao)) { ?>
     <h3><b>A informação foi adicionada com sucesso ao banco de dados!<b></h3><br>
       <p class="text-success">
         Descrição do Erro: <?= $informacao->erro; ?><br>
