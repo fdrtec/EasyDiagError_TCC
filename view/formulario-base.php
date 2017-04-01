@@ -37,6 +37,6 @@
   </tr>
   <tr>
       <td>Solução</td>
-      <td><textarea class="form-control" name="descricao" rows="4" cols="25"><?=$informacao->solucao?>
+      <td><textarea class="form-control" name="solucao" rows="4" cols="25"><?=$informacao->solucao?>
       </textarea></td>
   </tr>

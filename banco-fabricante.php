@@ -1,6 +1,5 @@
 <?php
 include("conecta.php");
-require_once('class/Fabricante.php'); //afeta a busca de informações
 
 function listaFabricante($conexao){
   $fabricantes = array();

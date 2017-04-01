@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 26-Mar-2017 às 23:19
+-- Generation Time: 01-Abr-2017 às 05:38
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 7.0.9
 
@@ -67,6 +67,7 @@ CREATE TABLE `informacao` (
   `id` int(11) NOT NULL,
   `erro` varchar(255) NOT NULL,
   `descricao` varchar(255) NOT NULL,
+  `solucao` varchar(250) NOT NULL,
   `modelo_id` int(11) DEFAULT NULL,
   `fabricante_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -75,20 +76,19 @@ CREATE TABLE `informacao` (
 -- Extraindo dados da tabela `informacao`
 --
 
-INSERT INTO `informacao` (`id`, `erro`, `descricao`, `modelo_id`, `fabricante_id`) VALUES
-(38, 'Falha na impressÃ£o', 'CabeÃ§ote ou cartucho de tinta com injetores (nozzles entupidos)"', 2, 1),
-(45, 'NÃ£o puxa papel', 'Roletes gastos patinam na hora de tracionar o papel da gaveta para o mecanismo da impressora', 2, 1),
-(46, '50', 'problema de aquecimento da unidade fusora', 2, 1),
-(48, 'NÃ£o Liga', 'cabo mal encaixado ou fonte queimada', 2, 1),
-(51, 'Tranca folha na saÃ­da', 'haste do sensor de passagem do papel gasta', 1, 1),
-(52, '51', 'Laser scanner danificado', 10, 1),
-(53, 'Puxando varias folhas', 'Separation pad gasto', 1, 1),
-(54, 'Carro trancado', 'Correira desfiando', 4, 1),
-(55, 'Cortando a impressÃ£o', 'Flat cable ressecado', 4, 1),
-(56, 'NÃ£o reconhece cartucho', 'Flat cable Quebrado', 3, 1),
-(59, '', '      ', 4, 1),
-(60, '', '      ', 1, 7),
-(61, '', '      ', 1, 1);
+INSERT INTO `informacao` (`id`, `erro`, `descricao`, `solucao`, `modelo_id`, `fabricante_id`) VALUES
+(38, 'Falha na impressÃ£o', 'CabeÃ§ote ou cartucho de tinta com injetores (nozzles entupidos)"', '', 2, 1),
+(45, 'NÃ£o puxa papel', 'Roletes gastos patinam na hora de tracionar o papel da gaveta para o mecanismo da impressora', '', 2, 1),
+(46, '50', 'problema de aquecimento da unidade fusora', '', 2, 1),
+(48, 'NÃ£o Liga', 'cabo mal encaixado ou fonte queimada', '', 2, 1),
+(51, 'Tranca folha na saÃ­da', 'haste do sensor de passagem do papel gasta', '', 1, 1),
+(52, '51', 'Laser scanner danificado', '', 10, 1),
+(53, 'Puxando varias folhas', 'Separation pad gasto', '', 1, 1),
+(54, 'Carro trancado', 'Correira desfiando', '', 4, 1),
+(55, 'Cortando a impressÃ£o', 'Flat cable ressecado', '', 4, 1),
+(56, 'NÃ£o reconhece cartucho', 'Flat cable Quebrado', '', 3, 1),
+(70, 'teste', 'pifado            ', '  trocado         ', 1, 1),
+(71, 'Embola papel na bandeja', 'Ao puxar folhas embola papel na parte traseira da bandeja      ', 'Fazer ajuste nas travas traseiras para que a bandeja encaixe perfeitamente no fundo      ', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -252,7 +252,7 @@ ALTER TABLE `fabricante`
 -- AUTO_INCREMENT for table `informacao`
 --
 ALTER TABLE `informacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `modelo`
 --
@@ -278,36 +278,6 @@ ALTER TABLE `tipo_fab`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `modelo`
---
-ALTER TABLE `modelo`
-  ADD CONSTRAINT `fab_id` FOREIGN KEY (`fab_id`) REFERENCES `fabricante` (`id`);
-
---
--- Limitadores para a tabela `modelo_info`
---
-ALTER TABLE `modelo_info`
-  ADD CONSTRAINT `modelo_info_ibfk_1` FOREIGN KEY (`modelo_id`) REFERENCES `modelo` (`id`),
-  ADD CONSTRAINT `modelo_info_ibfk_2` FOREIGN KEY (`info_id`) REFERENCES `informacao` (`id`);
-
---
--- Limitadores para a tabela `tipo`
---
-ALTER TABLE `tipo`
-  ADD CONSTRAINT `tipo_ibfk_1` FOREIGN KEY (`equip_id`) REFERENCES `equipamento` (`id`);
-
---
--- Limitadores para a tabela `tipo_fab`
---
-ALTER TABLE `tipo_fab`
-  ADD CONSTRAINT `tipo_fab_ibfk_1` FOREIGN KEY (`tipo_id`) REFERENCES `tipo` (`id`),
-  ADD CONSTRAINT `tipo_fab_ibfk_2` FOREIGN KEY (`fab_id`) REFERENCES `fabricante` (`id`);
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

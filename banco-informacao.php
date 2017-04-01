@@ -1,8 +1,5 @@
 <?php
-  require_once("conecta.php");
-  require_once('class/Informacao.php');
-  require_once('class/Modelo.php');
-  require_once('class/Fabricante.php');
+  require_once("conecta.php");  
 
   function listaInformacao($conexao){
 
@@ -24,6 +21,7 @@
       $informacao->id =  $informacao_array['id'];
       $informacao->erro =  $informacao_array['erro'];
       $informacao->descricao =  $informacao_array['descricao'];
+      $informacao->solucao = $informacao_array['solucao'];
       $informacao->modelo = $modelo;
       $informacao->fabricante = $fabricante;
 
@@ -34,14 +32,14 @@
 
 
 function insereInformacao($conexao, Informacao $informacao){
-  $query = "insert into informacao(erro, descricao, modelo_id, fabricante_id) values (
-    '{$informacao->erro}','{$informacao->descricao}','{$informacao->modelo->id}','{$informacao->fabricante->id}')"; //variavel para adicionar valores a tabela informacao
+  $query = "insert into informacao(erro, descricao, solucao, modelo_id, fabricante_id) values (
+    '{$informacao->erro}','{$informacao->descricao}','{$informacao->solucao}','{$informacao->modelo->id}','{$informacao->fabricante->id}')"; //variavel para adicionar valores a tabela informacao
 
   return mysqli_query($conexao, $query); // comando para abrir conexao e gravar dados na tabela
 }
 
 function alteraInformacao($conexao, Informacao $informacao){
-  $query = "update informacao set erro = '{$informacao->erro}', descricao ='{$informacao->descricao}',
+  $query = "update informacao set erro = '{$informacao->erro}', descricao ='{$informacao->descricao}', solucao = '{$informacao->solucao}',
   modelo_id = '{$informacao->modelo->id}', fabricante_id = '{$informacao->fabricante->id}'  where id = '{$informacao->id}'"; //variavel para adicionar valores a tabela informacao
 
   return mysqli_query($conexao, $query); // comando para abrir conexao e gravar dados na tabela
@@ -64,6 +62,7 @@ function buscaInformacao($conexao, $id){
   $informacao->id = $informacao_buscada['id'];
   $informacao->erro = $informacao_buscada['erro'];
   $informacao->descricao = $informacao_buscada['descricao'];
+  $informacao->solucao = $informacao_buscada['solucao'];
   $informacao->modelo = $modelo;
   $informacao->fabricante = $fabricante;
 

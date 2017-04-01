@@ -2,14 +2,11 @@
       require_once('logica-usuario.php');
       require_once('banco-modelo.php');
       require_once('banco-fabricante.php');
-      require_once('class/Informacao.php');
-      require_once('class/Modelo.php');
-      require_once('class/Fabricante.php');
-
+      
       verificaUsuario();
 
       $fabricante = new Fabricante();
-      $fabricante->id =1;
+      $fabricante->id = 1;
 
       $modelo = new Modelo();
       $modelo->id = 1;

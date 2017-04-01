@@ -1,3 +1,10 @@
+<?php
+
+spl_autoload_register(function($nomeDaclasse){
+  require_once("class/".$nomeDaclasse.".php");
+});
+
+?>
 <html>
   <head>
     <meta charset="utf-8">

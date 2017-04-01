@@ -3,7 +3,7 @@
       include('banco-modelo.php');
       include('banco-fabricante.php');
 
-      //include('logica-usuario.php');
+      include('logica-usuario.php');
 
 
 $id =  $_GET['id'];
@@ -11,7 +11,7 @@ $informacao = buscaInformacao($conexao, $id);
 $modelos = listaModelo($conexao);
 $fabricantes = listaFabricante($conexao);
 
-//verificaUsuario();
+verificaUsuario();
  ?>
 
 <h3><b>Formulário de Alteração de

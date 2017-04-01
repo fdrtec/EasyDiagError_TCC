@@ -1,6 +1,6 @@
 <?php
 include("conecta.php");
-require_once('class/Modelo.php'); //afeta a busca de informações
+
 
 function listaModelo($conexao){
   $modelos = array();

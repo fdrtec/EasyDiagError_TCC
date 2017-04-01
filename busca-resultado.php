@@ -39,16 +39,17 @@
       <td><b>Modelo</b></td>
       <td><b>Erro</b></td>
       <td><b>Descrição</b></td>
+      <td><b>Solução</b></td>
     </tr>
   <?php
     while($linha = mysqli_fetch_assoc($resultado)){
-    // $modelo = $linha['erro'];
-    // echo $modelo;
+    
     ?>
       <tr>
         <td><?= $linha["modelo_nome"] ?></td>
         <td><?= $linha["erro"] ?></td>
         <td><?= $linha["descricao"] ?></td>
+        <td><?= $linha["solucao"] ?></td>
       </tr>
     <?php } ?>
 

@@ -1,9 +1,6 @@
 <?php require_once('view/cabecalho.php');
       require_once('banco-informacao.php');
-      require_once('logica-usuario.php');
-      require_once('class/Informacao.php');
-      require_once('class/Modelo.php');
-      require_once('class/Fabricante.php');
+      require_once('logica-usuario.php');  
 
 
 
@@ -18,6 +15,7 @@
   $informacao = new Informacao();
   $informacao->erro = $_POST['erro'];
   $informacao->descricao = $_POST['descricao'];
+  $informacao->solucao = $_POST['solucao'];
   $informacao->modelo = $modelo;
   $informacao->fabricante = $fabricante;
 
