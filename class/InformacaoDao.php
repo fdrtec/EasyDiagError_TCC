@@ -10,10 +10,10 @@
     function listaInformacao(){
 
       $informacoes = array(); // versoes mais novas $informacao = [];
-      $resultado = mysqli_query($this->conexao, "select i.*, m.nome as modelo_nome, f.nome as fabricante_nome from informacao i
-                                            inner join modelo as m on m.id=i.modelo_id
-                                            inner join fabricante as f on f.id=i.fabricante_id"
-                                        );
+      $resultado = mysqli_query($this->conexao, "select i.*, m.modelo_nome as modelo_nome, f.fab_nome as fab_nome from informacao i
+                                                  join modelo_info mi on mi.info_fk = i.info_id
+                                                  inner join modelo m on mi.modelo_fk = m.modelo_id
+                                                  inner join fabricante as f on f.fab_id=m.fab_fk" );
 
       while ($informacao_array = mysqli_fetch_assoc($resultado)) {
 
@@ -21,10 +21,10 @@
         $modelo->nome = $informacao_array['modelo_nome'];
 
         $fabricante = new Fabricante();
-        $fabricante->nome = $informacao_array['fabricante_nome'];
+        $fabricante->nome = $informacao_array['fab_nome'];
 
         $informacao = new Informacao();
-        $informacao->id =  $informacao_array['id'];
+        $informacao->id =  $informacao_array['info_id'];
         $informacao->erro =  $informacao_array['erro'];
         $informacao->descricao =  $informacao_array['descricao'];
         $informacao->solucao = $informacao_array['solucao'];
@@ -38,10 +38,12 @@
 
 
   function insereInformacao(Informacao $informacao){
-    $query = "insert into informacao(erro, descricao, solucao, modelo_id, fabricante_id) values (
-      '{$informacao->erro}','{$informacao->descricao}','{$informacao->solucao}','{$informacao->modelo->id}','{$informacao->fabricante->id}')"; //variavel para adicionar valores a tabela informacao
+    $ultimoInfo_id = 73;
+    $query = "insert into informacao(erro, descricao, solucao) values (
+      '{$informacao->erro}','{$informacao->descricao}','{$informacao->solucao}')";
+    $query .= "insert into modelo_info(info_fk, modelo_fk) values ('{$ultimoInfo_id}','{$informacao->modelo->modelo_id}')";
 
-    return mysqli_query($this->conexao, $query); // comando para abrir conexao e gravar dados na tabela
+    return mysqli_multi_query($this->conexao, $query); // comando para abrir conexao e gravar dados na tabela
   }
 
   function alteraInformacao(Informacao $informacao){
@@ -62,10 +64,10 @@
     $modelo->id = $informacao_buscada['modelo_id'];
 
     $fabricante = new Fabricante();
-    $fabricante->id = $informacao_buscada['fabricante_id'];
+    $fabricante->id = $informacao_buscada['fab_id'];
 
     $informacao = new Informacao();
-    $informacao->id = $informacao_buscada['id'];
+    $informacao->id = $informacao_buscada['info_id'];
     $informacao->erro = $informacao_buscada['erro'];
     $informacao->descricao = $informacao_buscada['descricao'];
     $informacao->solucao = $informacao_buscada['solucao'];

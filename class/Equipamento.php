@@ -1,7 +1,7 @@
 <?php
   class Equipamento {
-    public $id;
-    public $nome;
+    public $equip_id;
+    public $equip_nome;
   }
 
 ?>

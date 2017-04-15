@@ -6,10 +6,10 @@
   $informacaoDao = new InformacaoDao($conexao);
 
   $modelo = new Modelo();
-  $modelo->id = $_POST['modelo_id'];
+  $modelo->modelo_id = $_POST['modelo_id'];
 
   $fabricante = new Fabricante();
-  $fabricante->id = $_POST['fabricante_id'];
+  $fabricante->fab_id = $_POST['fab_id'];
 
   $informacao = new Informacao();
   $informacao->erro = $_POST['erro'];
@@ -23,8 +23,8 @@
       <p class="text-success">
         Descrição do Erro: <?= $informacao->erro; ?><br>
         Informação: <?= $informacao->descricao; ?><br>
-        Modelo: <?= $informacao->modelo->id; ?><br>
-        Fabricante: <?=$informacao->fabricante->id; ?></p>
+        Modelo: <?= $informacao->modelo->modelo_id; ?><br>
+        Fabricante: <?=$informacao->fabricante->fab_id; ?></p>
 
   <?php } else {
       $msg = mysqli_error($conexao);

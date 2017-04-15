@@ -1,6 +1,6 @@
 <?php
   class Fabricante{
-    public $id;
-    public $nome;
+    public $fab_id;
+    public $fab_nome;
   }
  ?>

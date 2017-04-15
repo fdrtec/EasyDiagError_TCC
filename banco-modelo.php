@@ -10,8 +10,8 @@ function listaModelo($conexao){
   while ($modelo_array = mysqli_fetch_assoc($resultado)) {
 
     $modelo = new Modelo();
-    $modelo->id = $modelo_array['id'];
-    $modelo->nome = $modelo_array['nome'];
+    $modelo->modelo_id = $modelo_array['modelo_id'];
+    $modelo->modelo_nome = $modelo_array['modelo_nome'];
 
     array_push($modelos, $modelo);
   }

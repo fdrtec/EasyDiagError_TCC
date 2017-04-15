@@ -1,6 +1,6 @@
 <?php
 class Modelo {
-  public $id;
-  public $nome;
+  public $modelo_id;
+  public $modelo_nome;
   public $fabricante;
 }

@@ -9,8 +9,8 @@ function listaFabricante($conexao){
   while ($fabricante_array = mysqli_fetch_assoc($resultado)) {
 
     $fabricante = new Fabricante();
-    $fabricante->id = $fabricante_array['id'];
-    $fabricante->nome = $fabricante_array['nome'];
+    $fabricante->fab_id = $fabricante_array['fab_id'];
+    $fabricante->fab_nome = $fabricante_array['fab_nome'];
 
     array_push($fabricantes, $fabricante);
   }

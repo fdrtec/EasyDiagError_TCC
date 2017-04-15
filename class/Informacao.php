@@ -1,15 +1,13 @@
 <?php
 
 class Informacao {
-  public $id;
+  public $info_id;
   public $erro;
   public $descricao;
   public $solucao;
   public $modelo;
   public $fabricante;
-  public $tipo;
-  public $equipamento;
-  public $peca;
+  
 }
 
  ?>

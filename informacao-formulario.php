@@ -2,17 +2,15 @@
       require_once('logica-usuario.php');
       require_once('banco-modelo.php');
       require_once('banco-fabricante.php');
-      
+
       verificaUsuario();
 
       $fabricante = new Fabricante();
-      $fabricante->id = 1;
-
       $modelo = new Modelo();
-      $modelo->id = 1;
 
       $informacao = new Informacao();
       $informacao->modelo = $modelo;
+      $informacao->fabricante = $fabricante;
 
       $modelos = listaModelo($conexao);
       $fabricantes = listaFabricante($conexao);

@@ -15,7 +15,7 @@
 ?>
 
   <table class="table table-striped table-bordered">
-    <tr style="background: black; color:white">
+    <tr style="background:black; color:white">
       <td><b>Modelo</b></td>
       <td><b>Erro</b></td>
       <td><b>Descrição</b></td>

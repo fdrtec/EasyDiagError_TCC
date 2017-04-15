@@ -3,10 +3,10 @@
     <td>
       <select class="form-control" name="fabricante_id">
         <?php foreach ($fabricantes as $fabricante):
-          $fabricanteSelecionado = $informacao->fabricante->id == $fabricante->id;
+          $fabricanteSelecionado = $informacao->fabricante->fab_id == $fabricante->fab_id;
           $selecaoFabricante = $fabricanteSelecionado ? "selected='selected'" : "";?>
 
-          <option value="<?=$fabricante->id?>"<?=$selecaoFabricante?>><?=$fabricante->nome?></option>
+          <option value="<?=$fabricante->fab_id?>"<?=$selecaoFabricante?>><?=$fabricante->fab_nome?></option>
         <?php  endforeach ?>
       </select>
     </td>
@@ -16,10 +16,10 @@
     <td>
       <select name="modelo_id" class="form-control">
         <?php foreach ($modelos as $modelo) :
-          $modeloSelecionado = $informacao->modelo->id == $modelo->id;
+          $modeloSelecionado = $informacao->modelo->modelo_id == $modelo->modelo_id;
           $selecaoModelo = $modeloSelecionado ? "selected='selected'" : "";?>
 
-          <option value="<?=$modelo->id?>"<?=$selecaoModelo?>><?=$modelo->nome?></option>
+          <option value="<?=$modelo->modelo_id?>"<?=$selecaoModelo?>><?=$modelo->modelo_nome?></option>
 
         <?php endforeach ?>
       </select>

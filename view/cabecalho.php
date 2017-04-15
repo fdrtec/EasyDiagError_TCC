@@ -1,8 +1,11 @@
 <?php
 
+//autoLoading - pega a class que esta sendo estanciada e faz require no nome do arquivo
 spl_autoload_register(function($nomeDaclasse){
   require_once("class/".$nomeDaclasse.".php");
 });
+
+// importação da conexão do BD para todas paginas
 require_once("conecta.php");
 
 ?>
@@ -10,8 +13,8 @@ require_once("conecta.php");
   <head>
     <meta charset="utf-8">
     <title>EasyDiagError</title>
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/style.css">
   </head>
 
