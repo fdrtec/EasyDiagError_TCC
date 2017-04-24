@@ -1,10 +1,11 @@
 <?php
   require_once('view/cabecalho.php');
-  require_once('conecta.php');
   require_once('logica-usuario.php');
-  require_once("banco-informacao.php");
+
 
   verificaUsuario();
+
+  $informacaoDao = new InformacaoDao($conexao); //problema aqui
 
   $filtros = array();
 
@@ -32,7 +33,7 @@
 
   // $resultado = mysqli_query($conexao,
   // "select * from informacao where modelo_id = $modelo_id");
-  $resultado = mysqli_query($conexao, $sql);
+  $resultado = mysqli_query($this->conexao, $sql);
   ?>
   <table class="table table-striped table-bordered">
     <tr style="background: black; color:white">

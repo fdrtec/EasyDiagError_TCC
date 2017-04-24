@@ -1,6 +1,5 @@
 <?php require_once('view/cabecalho.php');
       require_once('logica-usuario.php');
-      require_once('banco-modelo.php');
       require_once('banco-fabricante.php');
 
       verificaUsuario();
@@ -12,7 +11,8 @@
       $informacao->modelo = $modelo;
       $informacao->fabricante = $fabricante;
 
-      $modelos = listaModelo($conexao);
+      $modeloDao = new ModeloDao($conexao);
+      $modelos = $modeloDao->listaModelo();
       $fabricantes = listaFabricante($conexao);
  ?>
 

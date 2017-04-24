@@ -1,13 +1,14 @@
 <?php
   include("view/cabecalho.php");
-  include("conecta.php");
-  include ('banco-modelo.php');
   include ('logica-usuario.php');
 
 
 
   verificaUsuario();
-  $modelos = listaModelo($conexao);
+
+  $modeloDao = new ModeloDao($conexao);
+  $modelos = $modeloDao->listaModelo();
+
  ?>
 
  <h3><b>Busca de informações por campo</b></h3>
@@ -18,7 +19,7 @@
       <td>
         <select class="form-control" name="modelo_id">
           <?php foreach ($modelos as $modelo): ?>
-            <option value="<?=$modelo->id?>"><?=$modelo->nome?></option>
+            <option value="<?=$modelo->modelo_id?>"><?=$modelo->modelo_nome?></option>
           <?php endforeach ?>
         </select>
       </td>

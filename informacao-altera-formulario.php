@@ -1,14 +1,15 @@
 <?php include('view/cabecalho.php');
-      include('banco-modelo.php');
       include('banco-fabricante.php');
       include('logica-usuario.php');
 
 
 $informacaoDao = new InformacaoDao($conexao);
+$modeloDao = new ModeloDao($conexao);
 
-$id =  $_GET['id'];
-$informacao = $informacaoDao->buscaInformacao($id);
-$modelos = listaModelo($conexao);
+
+$info_id =  $_GET['info_id'];
+$informacao = $informacaoDao->buscaInformacao($info_id);
+$modelos = $modeloDao->listaModelo($conexao);
 $fabricantes = listaFabricante($conexao);
 
 verificaUsuario();
@@ -18,7 +19,7 @@ verificaUsuario();
 Informação de erros<b></h3><br><br>
 
   <form action="altera-informacao.php" method="POST">
-    <input type="hidden" name="id" value="<?=$informacao->id?>">
+    <input type="hidden" name="id" value="<?=$informacao->info_id?>">
     <table class="table">
 
     <?php include('view/formulario-base.php') ?>
