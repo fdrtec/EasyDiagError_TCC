@@ -2,8 +2,8 @@
 
 $informacaoDao = new InformacaoDao($conexao);
 
-$id = $_POST['id'];
-$informacaoDao->removeInformacao($id);
+$info_id = $_POST['info_id'];
+$informacaoDao->removeInformacao($info_id);
 header("Location: informacao-lista.php?removido=true");
 ?>
 

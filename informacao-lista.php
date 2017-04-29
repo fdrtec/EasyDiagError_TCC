@@ -1,8 +1,8 @@
 <?php
   require_once("view/cabecalho.php");
   require_once("banco-fabricante.php");
-
-  include ('logica-usuario.php');
+  require_once("logica-usuario.php");
+  
   verificaUsuario();
 
  if(array_key_exists("removido", $_GET) && $_GET['removido']=='true'){ ?>
@@ -41,7 +41,7 @@
         info_id=<?=$informacao->info_id ?>">Alterar</a></td>
       <td>
         <form action="remove-informacao.php" method="post">
-          <input type="hidden" name="id" value="<?=$informacao->info_id ?>"/>
+          <input type="hidden" name="info_id" value="<?=$informacao->info_id ?>"/>
           <button class="btn btn-danger">remover</button>
         </form>
       </td>

@@ -9,9 +9,14 @@ $modeloDao = new ModeloDao($conexao);
 
 $info_id =  $_GET['info_id'];
 $informacao = $informacaoDao->buscaInformacao($info_id);
-$modelos = $modeloDao->listaModelo($conexao);
+//var_dump($informacao);
+
+$modelos = $modeloDao->listaModelo();
 $fabricantes = listaFabricante($conexao);
 
+
+
+//var_dump ($modelos);
 verificaUsuario();
  ?>
 
@@ -19,7 +24,8 @@ verificaUsuario();
 Informação de erros<b></h3><br><br>
 
   <form action="altera-informacao.php" method="POST">
-    <input type="hidden" name="id" value="<?=$informacao->info_id?>">
+
+    <input type="hidden" name="info_id" value="<?=$informacao->info_id?>">
     <table class="table">
 
     <?php include('view/formulario-base.php') ?>

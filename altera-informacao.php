@@ -6,18 +6,17 @@
   $informacaoDao = new InformacaoDao($conexao);
 
   $modelo = new Modelo();
-  $modelo->id = $_POST['modelo_id'];
-
   $fabricante = new Fabricante();
-  $fabricante->id = $_POST['fabricante_id'];
 
   $informacao = new Informacao();
-  $informacao->id = $_POST['id'];
+  $informacao->info_id = $_POST['info_id'];
   $informacao->erro = $_POST['erro'];
   $informacao->descricao = $_POST['descricao'];
   $informacao->solucao = $_POST['solucao'];
   $informacao->modelo = $modelo;
+  $informacao->modelo->modelo_id = $_POST['modelo_id'];
   $informacao->fabricante = $fabricante;
+  $informacao->fabricante->fab_id = $_POST['fab_id'];
 
 
   if($informacaoDao->alteraInformacao($informacao)) { ?>
