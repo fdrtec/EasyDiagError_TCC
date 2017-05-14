@@ -11,7 +11,8 @@
 
  ?>
 
- <h3><b>Busca de informações por campo</b></h3>
+ <h3><b>Buscador de informações</b></h3>
+ <h3><b>Encontre a sua dica nos buscadores abaixo</b></h3>
 
  <form action="busca-resultado.php" method="post">
    <table>
