@@ -1,6 +1,9 @@
 <?php
-include("view/cabecalho.php");
-include("conecta.php");
+
+require_once("view/cabecalho.php");
+require_once('logica-usuario.php');
+
+  verificaUsuario();
 ?>
 
 <form action="index.html" method="post">

@@ -1,5 +1,5 @@
 <?php
-  include("conecta.php");
+  require_once("conecta.php");
 
 $equip_id = $_REQUEST('equip');
 

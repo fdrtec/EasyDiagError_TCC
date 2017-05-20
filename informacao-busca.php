@@ -1,8 +1,6 @@
 <?php
-  include("view/cabecalho.php");
-  include ('logica-usuario.php');
-
-
+  require_once("view/cabecalho.php");
+  require_once('logica-usuario.php');
 
   verificaUsuario();
 

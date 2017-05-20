@@ -1,6 +1,6 @@
-<?php include('cabecalho.php');
-      include('conecta.php');
-      include('banco-usuario.php');
+<?php
+require_once('view/cabecalho.php');
+require_once('banco-usuario.php');
 
 
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -35,4 +35,5 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
 
    } ?>
 
- <?php include ('rodape.php'); ?>
+ 
+ <?php include ('view/rodape.php'); //importa rodape ?>

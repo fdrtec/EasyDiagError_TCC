@@ -1,5 +1,9 @@
 <?php
 require_once('view/cabecalho.php');
+require_once('logica-usuario.php');
+
+verificaUsuario();
+
 ?>
 
 <form action="captura-import.php" method="post" enctype="multipart/form-data">
@@ -18,6 +22,5 @@ require_once('view/cabecalho.php');
 
 </form>
 
-<?php
-require_once('view/rodape.php');
- ?>
+
+<?php include ('view/rodape.php'); //importa rodape ?>
