@@ -11,7 +11,7 @@
 
   if (!empty($_POST['modelo_id'])) {
   	$modelo_id = trim($_POST['modelo_id']);
-  	$filtros['modelo_id'] = "modelo_id LIKE '%$modelo_id'";
+  	$filtros['modelo_id'] = "modelo_id LIKE '$modelo_id'";
   }
 
   if (!empty($_POST['descricao'])) {

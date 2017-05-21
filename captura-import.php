@@ -2,45 +2,49 @@
 require_once('view/cabecalho.php');
 require_once('logica-usuario.php');
 
-// activar Error reporting
-error_reporting(E_ALL);
+$dados = $_FILES['arquivo'];
+//var_dump($dados);
 
-// carregar a classe PHPExcel
-require_once 'PHPExcel/PHPExcel.php';
+if(!empty ($_FILES['arquivo']['tmp_name'])){
+  $arquivo = new DOMDocument();
+  $arquivo->load($_FILES['arquivo']['tmp_name']);
+  //var_dump($arquivo);
 
-// iniciar o objecto para leitura
-// definir a abertura do ficheiro em modo só de leitura
-$objReader = new PHPExcel_Reader_Excel5();
-$objReader->setReadDataOnly(true);
-//$objPHPExcel = $objReader->load($_FILES['fileXLS']);
-$objPHPExcel = $objReader->load("listaExcel/tabela de defeitos.xls");
-$objPHPExcel->setActiveSheetIndex(0);
+  $linhas = $arquivo->getElementsByTagName('Row');
+  //var_dump($linhas);
 
-echo "<table border='1'>";
-// navegar na linha
-for($linha=1; $linha<=30; $linha++){
-    echo "<tr>";
-	// navegar nas colunas da respectiva linha
-    for($coluna=0; $coluna<=5; $coluna++){
-        if($linha==1){
-			// escreve o cabeçalho da tabela a bold
-            echo "<th>".utf8_decode($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($coluna, $linha)->getValue())."</th>";
-        }else{
-			// escreve os dados da tabela
-            echo "<td>".utf8_decode($objPHPExcel->getActiveSheet()->getCellByColumnAndRow($coluna, $linha)->getValue())."</td>";
-        }
+  $primeiraLinha = true;
+
+  foreach($linhas as $linha){
+    if($primeiraLinha == false){
+      $tipo = $linha->getElementsByTagName("Data")->item(0)->nodeValue;
+        echo "Tipo Impressora: $tipo<br>";
+      $modelo = $linha->getElementsByTagName("Data")->item(1)->nodeValue;
+        echo "Modelo: $modelo<br>";
+      $defeito= $linha->getElementsByTagName("Data")->item(2)->nodeValue;
+        echo "defeito: $defeito<br>";
+      $solucao = $linha->getElementsByTagName("Data")->item(3)->nodeValue;
+        echo "Solução: $solucao<br>";
+      $codPeca = $linha->getElementsByTagName("Data")->item(4)->nodeValue;
+        echo "Código Peça: $codPeca<br>";
+      $descricaoPeca = $linha->getElementsByTagName("Data")->item(5)->nodeValue;
+        echo "Descricao da Peca: $descricaoPeca<br>";
+      echo "<hr>";
+
+      $result_captacao = "insert into captacao(tipo, modelo, defeito, solucao, codPeca, descricaoPeca)
+      values('$tipo','$modelo','$defeito', '$solucao', '$codPeca', '$descricaoPeca')";
+
+      $resultado_captacao = mysqli_query($conexao, $result_captacao);
     }
-    echo "</tr>";
+    $primeiraLinha = false;
+  }
+
+
+
+
+
 }
-echo "</table>";
 
-
-
-// if(!empty($_FILES['fileXLS']['tmp_name'])){
-//   $arquivo = new DOMDocument ();
-//   $arquivo->load($_FILES['arquivo']['tmp_name']);
-//
-// }
 
 require_once('view/rodape.php');
 ?>

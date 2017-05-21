@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Fabiano Ramires</Author>
+  <LastAuthor>Fabiano Ramires</LastAuthor>
+  <Created>2017-05-21T17:41:27Z</Created>
+  <LastSaved>2017-05-04T12:05:26Z</LastSaved>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>9735</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <TabRatio>987</TabRatio>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Arial" x:Family="Swiss"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Bold="1"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Planilha1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="16" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="60.75">
+   <Column ss:AutoFitWidth="0" ss:Width="101.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="150.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="175.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="222"/>
+   <Column ss:AutoFitWidth="0" ss:Width="113.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="187.5"/>
+   <Row>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Tipo impressora </Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Modelo</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Defeito</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Solução</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Código da peça</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Descrição da peça</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Plotter</Data></Cell>
+    <Cell><Data ss:Type="String">HP Designjet 110plus nr</Data></Cell>
+    <Cell><Data ss:Type="String">Falha na cor preta</Data></Cell>
+    <Cell><Data ss:Type="String">Troca da cabeça de impressão</Data></Cell>
+    <Cell><Data ss:Type="String">C4810A</Data></Cell>
+    <Cell><Data ss:Type="String">Cabeçote Preto de impressão </Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet Pro MFP M426dw</Data></Cell>
+    <Cell><Data ss:Type="String">Painel em branco ao ligar</Data></Cell>
+    <Cell><Data ss:Type="String">Troca do painel </Data></Cell>
+    <Cell><Data ss:Type="String">B3Q10-60139</Data></Cell>
+    <Cell><Data ss:Type="String">Painel de controle</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Plotter</Data></Cell>
+    <Cell><Data ss:Type="String">HP Designjet T120</Data></Cell>
+    <Cell><Data ss:Type="String">Erro ao alinhar cabeçote de impressão</Data></Cell>
+    <Cell><Data ss:Type="String">Troca da cabeça de impressão</Data></Cell>
+    <Cell><Data ss:Type="String">C1Q10A</Data></Cell>
+    <Cell><Data ss:Type="String">Cabeça de impressão</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet M1132 MFP</Data></Cell>
+    <Cell><Data ss:Type="String">Erro E8 no painel</Data></Cell>
+    <Cell><Data ss:Type="String">Troca da leitora</Data></Cell>
+    <Cell><Data ss:Type="String">CE847-60108</Data></Cell>
+    <Cell><Data ss:Type="String">Leitora do módulo de cópias</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet Pro 400 M425</Data></Cell>
+    <Cell><Data ss:Type="String">Falha no ADF</Data></Cell>
+    <Cell><Data ss:Type="String">Troca do ADF</Data></Cell>
+    <Cell><Data ss:Type="String">CF288-60029</Data></Cell>
+    <Cell><Data ss:Type="String">Alimentador de Documentos</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet Enterprise M605</Data></Cell>
+    <Cell><Data ss:Type="String">Erro 98.00</Data></Cell>
+    <Cell><Data ss:Type="String">Troca da placa EMMC</Data></Cell>
+    <Cell><Data ss:Type="String">B5L32-60001</Data></Cell>
+    <Cell><Data ss:Type="String">Placa EMMC</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet Pro MFP M426dw</Data></Cell>
+    <Cell><Data ss:Type="String">Impressão falhada</Data></Cell>
+    <Cell><Data ss:Type="String">Troca da placa LVPS</Data></Cell>
+    <Cell><Data ss:Type="String">RM2-8518</Data></Cell>
+    <Cell><Data ss:Type="String">Placa fonte de baixa tensão</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet P2014</Data></Cell>
+    <Cell><Data ss:Type="String">Não puxa papel pela bandeja MP</Data></Cell>
+    <Cell><Data ss:Type="String">Troca do rolete tracionador</Data></Cell>
+    <Cell><Data ss:Type="String">RL1-1525-000CN</Data></Cell>
+    <Cell><Data ss:Type="String">Rolete tracionador</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet P2014</Data></Cell>
+    <Cell><Data ss:Type="String">Barulho no funcionamento</Data></Cell>
+    <Cell><Data ss:Type="String">Troca da engrenagem de suporte do fusor</Data></Cell>
+    <Cell><Data ss:Type="String">RC1-3575-000CN</Data></Cell>
+    <Cell><Data ss:Type="String">Engrenagem com balancim</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Plotter</Data></Cell>
+    <Cell><Data ss:Type="String">HP Designjet T520</Data></Cell>
+    <Cell><Data ss:Type="String">Erro no sistema de tinta</Data></Cell>
+    <Cell><Data ss:Type="String">Troca da cabeça de impressão</Data></Cell>
+    <Cell><Data ss:Type="String">C1Q10A</Data></Cell>
+    <Cell><Data ss:Type="String">Cabeça de impressão</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet Pro 400 M425</Data></Cell>
+    <Cell><Data ss:Type="String">Erro 52</Data></Cell>
+    <Cell><Data ss:Type="String">Troca do Laser Scanner</Data></Cell>
+    <Cell><Data ss:Type="String">RM1-9135-000CN</Data></Cell>
+    <Cell><Data ss:Type="String">Laser Scanner</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Color Laserjet CP1525</Data></Cell>
+    <Cell><Data ss:Type="String">Impressão falhada</Data></Cell>
+    <Cell><Data ss:Type="String">Troca da esteira de transferência</Data></Cell>
+    <Cell><Data ss:Type="String">RM1-7866-000CN</Data></Cell>
+    <Cell><Data ss:Type="String">Esteira de transferência</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet P2055</Data></Cell>
+    <Cell><Data ss:Type="String">Atolamento de papel</Data></Cell>
+    <Cell><Data ss:Type="String">Troca do fusor</Data></Cell>
+    <Cell><Data ss:Type="String">RM1-6405-000CN</Data></Cell>
+    <Cell><Data ss:Type="String">Fusor 110v</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Laser</Data></Cell>
+    <Cell><Data ss:Type="String">HP Laserjet Pro 400 M425</Data></Cell>
+    <Cell><Data ss:Type="String">Falso atolamento no ADF</Data></Cell>
+    <Cell><Data ss:Type="String">Troca do Alimentador Automático de Documentos</Data></Cell>
+    <Cell><Data ss:Type="String">CF288-60029</Data></Cell>
+    <Cell><Data ss:Type="String"> Alimentador Automático de Documentos</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Officejet</Data></Cell>
+    <Cell><Data ss:Type="String">HP Officejet Pro X476</Data></Cell>
+    <Cell><Data ss:Type="String">Painel touch não funciona</Data></Cell>
+    <Cell><Data ss:Type="String">Troca do painel touchscreen</Data></Cell>
+    <Cell><Data ss:Type="String">CN461-60002</Data></Cell>
+    <Cell><Data ss:Type="String">Painel de controle touchscreen</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Layout x:StartPageNumber="1"/>
+    <Header x:Margin="0.78749999999999998"
+     x:Data="&amp;C&amp;&quot;Times New Roman,Regular&quot;&amp;12&amp;A"/>
+    <Footer x:Margin="0.78749999999999998"
+     x:Data="&amp;C&amp;&quot;Times New Roman,Regular&quot;&amp;12Página &amp;P"/>
+    <PageMargins x:Bottom="1.0527777777777778" x:Left="0.78749999999999998"
+     x:Right="0.78749999999999998" x:Top="1.0527777777777778"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>R1C1:R17C6</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <EnableSelection>NoSelection</EnableSelection>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

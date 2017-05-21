@@ -1,7 +1,7 @@
   <tr>
     <td>Fabricante</td>
     <td>
-      <select class="form-control" name="fabricante_id">
+      <select class="form-control" name="fab_id">
         <?php foreach ($fabricantes as $fabricante):
           $fabricanteSelecionado = $informacao->fabricante->fab_id == $fabricante->fab_id;
           $selecaoFabricante = $fabricanteSelecionado ? "selected='selected'" : "";?>
