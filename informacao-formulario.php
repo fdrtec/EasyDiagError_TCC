@@ -5,14 +5,27 @@
       verificaUsuario();
 
       $fabricante = new Fabricante();
+      $equipamento = new Equipamento();
+      $tipo = new Tipo();
       $modelo = new Modelo();
-
       $informacao = new Informacao();
-      $informacao->modelo = $modelo;
+
+
       $informacao->fabricante = $fabricante;
+      $informacao->equipamento = $equipamento;
+      $informacao->tipo = $tipo;
+      $informacao->modelo = $modelo;
 
       $modeloDao = new ModeloDao($conexao);
       $modelos = $modeloDao->listaModelo();
+
+      $tipoDao = new TipoDao($conexao);
+      $tipos = $tipoDao->listaTipo();
+
+      $equipamentoDao = new EquipamentoDao($conexao);
+      $equipamentos = $equipamentoDao->listaEquipamento();
+
+
       $fabricantes = listaFabricante($conexao);
  ?>
 

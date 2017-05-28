@@ -6,7 +6,9 @@
   $informacaoDao = new InformacaoDao($conexao);
 
   $modelo = new Modelo();
+  $tipo = new Tipo();
   $fabricante = new Fabricante();
+
 
   $informacao = new Informacao();
   $informacao->info_id = $_POST['info_id'];
@@ -15,6 +17,8 @@
   $informacao->solucao = $_POST['solucao'];
   $informacao->modelo = $modelo;
   $informacao->modelo->modelo_id = $_POST['modelo_id'];
+  $informacao->tipo = $tipo;
+  $informacao->tipo->tipo_id = $_POST['tipo_id'];
   $informacao->fabricante = $fabricante;
   $informacao->fabricante->fab_id = $_POST['fab_id'];
 

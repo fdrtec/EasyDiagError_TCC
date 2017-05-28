@@ -7,7 +7,9 @@ class Informacao {
   public $solucao;
   public $modelo;
   public $fabricante;
-  
+  public $tipo;
+  public $equipamento;
+
 }
 
  ?>

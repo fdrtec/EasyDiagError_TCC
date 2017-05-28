@@ -2,7 +2,7 @@
   require_once("view/cabecalho.php");
   require_once("banco-fabricante.php");
   require_once("logica-usuario.php");
-  
+
   verificaUsuario();
 
  if(array_key_exists("removido", $_GET) && $_GET['removido']=='true'){ ?>
@@ -11,7 +11,6 @@
   <?php }
 
   $informacaoDao = new InformacaoDao($conexao);
-  $modeloDao = new ModeloDao($conexao);
   $informacoes = $informacaoDao->listaInformacao();
 ?>
 
@@ -19,6 +18,8 @@
     <tr style="background:black; color:white">
 
       <td><b>Fabricante</b></td>
+      <td><b>Equipamento</b></td>
+      <td><b>Tipo</b></td>
       <td><b>Modelo</b></td>
       <td><b>Erro</b></td>
       <td><b>Descrição</b></td>
@@ -32,6 +33,8 @@
 ?>
     <tr>
       <td><?= $informacao->fabricante->fab_nome ?></td>
+      <td><?= $informacao->equipamento->equip_nome ?></td>
+      <td><?= $informacao->tipo->tipo_nome ?></td>
       <td><?= $informacao->modelo->modelo_nome ?></td>
       <td><?= $informacao->erro ?></td>
       <td><?= $informacao->descricao ?></td>

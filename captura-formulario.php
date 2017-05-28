@@ -41,10 +41,11 @@ $resultado = mysqli_query($conexao, $sql);
     <tr>
       <td><?= $linha["tipo"] ?></td>
       <td><?= $linha["modelo"] ?></td>
-      <td><?= $linha["defeito"] ?></td>    
+      <td><?= $linha["defeito"] ?></td>
       <td><?= $linha["solucao"] ?></td>
       <td><?= $linha["codPeca"] ?></td>
       <td><?= $linha["descricaoPeca"] ?></td>
+      
     </tr>
   <?php } ?>
 

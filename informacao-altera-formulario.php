@@ -5,6 +5,8 @@
 
 $informacaoDao = new InformacaoDao($conexao);
 $modeloDao = new ModeloDao($conexao);
+$tipoDao = new TipoDao($conexao);
+$equipamentoDao = new EquipamentoDao($conexao);
 
 
 $info_id =  $_GET['info_id'];
@@ -12,6 +14,8 @@ $informacao = $informacaoDao->buscaInformacao($info_id);
 //var_dump($informacao);
 
 $modelos = $modeloDao->listaModelo();
+$tipos = $tipoDao->listaTipo();
+$equipamentos = $equipamentoDao->listaEquipamento();
 $fabricantes = listaFabricante($conexao);
 
 
