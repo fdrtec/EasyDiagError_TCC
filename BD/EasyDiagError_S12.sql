@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 28-Maio-2017 às 09:34
+-- Generation Time: 28-Maio-2017 às 19:34
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 7.0.9
 
@@ -104,47 +104,8 @@ INSERT INTO `fabricante` (`fab_id`, `fab_nome`) VALUES
 (6, 'Apple'),
 (7, 'Lenovo'),
 (8, 'Dell'),
-(9, 'Samsung');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `fab_equip`
---
-
-CREATE TABLE `fab_equip` (
-  `equip_fk` int(11) NOT NULL,
-  `fab_fk` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `fab_equip`
---
-
-INSERT INTO `fab_equip` (`equip_fk`, `fab_fk`) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(2, 1),
-(2, 5),
-(2, 6),
-(2, 7),
-(2, 8),
-(2, 9),
-(3, 5),
-(3, 9),
-(4, 1),
-(4, 6),
-(4, 7),
-(4, 8),
-(5, 6),
-(5, 7),
-(5, 9),
-(6, 5),
-(6, 7),
-(6, 9),
-(6, 6);
+(9, 'Samsung'),
+(10, 'Bematech');
 
 -- --------------------------------------------------------
 
@@ -179,7 +140,7 @@ INSERT INTO `informacao` (`info_id`, `erro`, `descricao`, `solucao`, `modelo_fk`
 (71, 'Embola papel na bandeja', 'Ao puxar folhas embola papel na parte traseira da bandeja            ', 'Fazer ajuste nas travas traseiras para que a bandeja encaixe perfeitamente no fundo            ', 6, 0),
 (73, 'Carro travado', 'Correia arrebentada            ', 'Trocar Correia (observaÃ§Ã£o cuidar com o tamanho A0 ou A1)                  ', 7, 0),
 (77, '900', 'Erro generico de comunicaÃ§Ã£o entre placas (mau contatos no slot)            ', 'tirar a placa controle do slot e passar limpa contato                   ', 12, 0),
-(81, 'd', '      f      ', 'a            ', 12, 0);
+(82, 'Faixa preta na digitalizaÃ§Ã£o e na cÃ³pia', 'Ao digitalizar uma  folha no scanner de mesa, o resultado Ã© um risco vertical preto em toda copia      ', 'Trocar o flat cable quebrado', 13, 0);
 
 -- --------------------------------------------------------
 
@@ -190,26 +151,27 @@ INSERT INTO `informacao` (`info_id`, `erro`, `descricao`, `solucao`, `modelo_fk`
 CREATE TABLE `modelo` (
   `modelo_id` int(11) NOT NULL,
   `modelo_nome` varchar(255) DEFAULT NULL,
-  `tipo_fk` int(11) NOT NULL
+  `tipo_fab_fk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `modelo`
 --
 
-INSERT INTO `modelo` (`modelo_id`, `modelo_nome`, `tipo_fk`) VALUES
-(1, 'Laserjet 1100', 2),
-(2, 'Laserjet 4250', 2),
+INSERT INTO `modelo` (`modelo_id`, `modelo_nome`, `tipo_fab_fk`) VALUES
+(1, 'Laserjet 1100', 4),
+(2, 'Laserjet 4250', 4),
 (3, 'Deskjet 1220', 1),
-(4, 'Designjet 500', 3),
+(4, 'Designjet 500', 9),
 (5, 'Deskjet 950', 1),
 (6, 'Deskjet 840', 1),
-(7, 'Designjet 450C', 3),
-(8, 'Laserjet 5000', 2),
+(7, 'Designjet 450C', 9),
+(8, 'Laserjet 5000', 4),
 (9, 'PSC 1210', 1),
-(10, 'MFP 2727', 2),
-(11, 'MFP 4345', 2),
-(12, 'T640', 2);
+(10, 'MFP 2727', 4),
+(11, 'MFP 4345', 4),
+(12, 'T640', 6),
+(13, 'X1100', 2);
 
 -- --------------------------------------------------------
 
@@ -247,7 +209,7 @@ INSERT INTO `tipo` (`tipo_id`, `tipo_nome`, `equip_fk`) VALUES
 (5, 'Termica', 1),
 (6, '14', 2),
 (7, '15', 2),
-(8, '8.5', 2),
+(8, '17', 2),
 (9, '15.6', 2),
 (10, 'LCD', 3),
 (11, 'LED', 3),
@@ -259,6 +221,76 @@ INSERT INTO `tipo` (`tipo_id`, `tipo_nome`, `equip_fk`) VALUES
 (17, '10.1', 5),
 (18, 'Smartphone', 6),
 (19, 'Convencional', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipo_fab`
+--
+
+CREATE TABLE `tipo_fab` (
+  `id_tipo_fab` int(11) NOT NULL,
+  `tipo_fk` int(11) NOT NULL,
+  `fab_fk` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tipo_fab`
+--
+
+INSERT INTO `tipo_fab` (`id_tipo_fab`, `tipo_fk`, `fab_fk`) VALUES
+(1, 1, 1),
+(2, 1, 3),
+(3, 1, 4),
+(4, 2, 1),
+(5, 2, 2),
+(6, 2, 3),
+(7, 2, 4),
+(8, 2, 9),
+(9, 3, 1),
+(10, 4, 1),
+(11, 5, 10),
+(12, 6, 1),
+(13, 6, 5),
+(14, 6, 8),
+(15, 6, 9),
+(16, 7, 1),
+(17, 7, 5),
+(18, 7, 8),
+(19, 7, 9),
+(20, 8, 1),
+(21, 8, 5),
+(22, 8, 8),
+(23, 8, 9),
+(24, 9, 1),
+(25, 9, 5),
+(26, 9, 8),
+(27, 9, 9),
+(28, 10, 5),
+(29, 10, 9),
+(30, 11, 5),
+(31, 11, 9),
+(32, 12, 5),
+(33, 12, 9),
+(34, 13, 1),
+(35, 13, 7),
+(36, 13, 8),
+(37, 14, 1),
+(38, 14, 7),
+(39, 14, 8),
+(40, 15, 6),
+(41, 15, 9),
+(42, 16, 6),
+(43, 16, 9),
+(44, 17, 6),
+(45, 17, 9),
+(46, 18, 5),
+(47, 18, 6),
+(48, 18, 7),
+(49, 18, 9),
+(50, 19, 5),
+(51, 19, 7),
+(52, 19, 9);
 
 -- --------------------------------------------------------
 
@@ -309,13 +341,6 @@ ALTER TABLE `fabricante`
   ADD PRIMARY KEY (`fab_id`);
 
 --
--- Indexes for table `fab_equip`
---
-ALTER TABLE `fab_equip`
-  ADD KEY `equip_fk` (`equip_fk`),
-  ADD KEY `fab_fk` (`fab_fk`);
-
---
 -- Indexes for table `informacao`
 --
 ALTER TABLE `informacao`
@@ -328,7 +353,7 @@ ALTER TABLE `informacao`
 --
 ALTER TABLE `modelo`
   ADD PRIMARY KEY (`modelo_id`),
-  ADD KEY `tipo_fk` (`tipo_fk`);
+  ADD KEY `tipo_fab_fk` (`tipo_fab_fk`);
 
 --
 -- Indexes for table `peca`
@@ -342,6 +367,14 @@ ALTER TABLE `peca`
 ALTER TABLE `tipo`
   ADD PRIMARY KEY (`tipo_id`),
   ADD KEY `equip_fk` (`equip_fk`);
+
+--
+-- Indexes for table `tipo_fab`
+--
+ALTER TABLE `tipo_fab`
+  ADD PRIMARY KEY (`id_tipo_fab`),
+  ADD KEY `tipo_fk` (`tipo_fk`),
+  ADD KEY `fab_fk` (`fab_fk`);
 
 --
 -- Indexes for table `usuarios`
@@ -367,17 +400,17 @@ ALTER TABLE `equipamento`
 -- AUTO_INCREMENT for table `fabricante`
 --
 ALTER TABLE `fabricante`
-  MODIFY `fab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `fab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `informacao`
 --
 ALTER TABLE `informacao`
-  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 --
 -- AUTO_INCREMENT for table `modelo`
 --
 ALTER TABLE `modelo`
-  MODIFY `modelo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `modelo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `peca`
 --
@@ -388,6 +421,11 @@ ALTER TABLE `peca`
 --
 ALTER TABLE `tipo`
   MODIFY `tipo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `tipo_fab`
+--
+ALTER TABLE `tipo_fab`
+  MODIFY `id_tipo_fab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
@@ -401,6 +439,13 @@ ALTER TABLE `usuarios`
 -- Limitadores para a tabela `modelo`
 --
 ALTER TABLE `modelo`
+  ADD CONSTRAINT `tipo_fab_ibfk` FOREIGN KEY (`tipo_fab_fk`) REFERENCES `tipo_fab` (`id_tipo_fab`);
+
+--
+-- Limitadores para a tabela `tipo_fab`
+--
+ALTER TABLE `tipo_fab`
+  ADD CONSTRAINT `fab_ibfk` FOREIGN KEY (`fab_fk`) REFERENCES `fabricante` (`fab_id`),
   ADD CONSTRAINT `tipo_ibfk` FOREIGN KEY (`tipo_fk`) REFERENCES `tipo` (`tipo_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

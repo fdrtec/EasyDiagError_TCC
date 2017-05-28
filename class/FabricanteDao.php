@@ -8,10 +8,10 @@ class FabricanteDao{
      $this->conexao = $conexao;
    }
 
-   function listaFabricante($conexao){
+   function listaFabricante(){
      $fabricantes = array();
      $query = "select * from fabricante";
-     $resultado = mysqli_query($conexao, $query);
+     $resultado = mysqli_query($this->conexao, $query);
 
      while ($fabricante_array = mysqli_fetch_assoc($resultado)) {
 

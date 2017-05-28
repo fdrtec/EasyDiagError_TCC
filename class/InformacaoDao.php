@@ -10,22 +10,18 @@
     function listaInformacao(){
 
       $informacoes = array(); // versoes mais novas $informacao = []; Array para depositar as linhas de regisro do BD e, objeto
-      $resultado = mysqli_query($this->conexao, "select i.*,m.modelo_nome as modelo_nome,t.tipo_nome as tipo_nome,
-                                                  e.equip_nome as equip_nome from informacao i
+      $resultado = mysqli_query($this->conexao, "select i.*,
+                                                  m.modelo_nome as modelo_nome,
+                                                  f.fab_nome as fab_nome,
+                                                  t.tipo_nome as tipo_nome,
+                                                  e.equip_nome as equip_nome
+                                                  from informacao i
                                                   join modelo m on m.modelo_id = i.modelo_fk
-                                                  inner join tipo as t on t.tipo_id=m.tipo_fk
+                                                  inner join tipo_fab as tf on tf.id_tipo_fab  = m.tipo_fab_fk
+                                                  inner join fabricante as f on f.fab_id  = tf.fab_fk
+                                                  inner join tipo as t on t.tipo_id=tf.tipo_fk
                                                   inner join equipamento as e on e.equip_id=t.equip_fk" );
 
-// select i.*,
-// m.modelo_nome as modelo_nome,
-// t.tipo_nome as tipo_nome,
-// e.equip_nome as equip_nome,
-// f.fab_nome as fab_nome
-// from informacao i
-// join modelo m on m.modelo_id = i.modelo_fk
-// inner join tipo as t on t.tipo_id=m.tipo_fk
-// inner join equipamento as e on e.equip_id=t.equip_fk
-// inner join fabricante as f on f.fab_id  = t.equip_fk
 
       while ($informacao_array = mysqli_fetch_assoc($resultado)) {
 
@@ -76,17 +72,19 @@
 
 
   function buscaInformacao($id){
-    $query = "select i.*, m.*, t.* from informacao i
-    join modelo m on m.modelo_id = i.modelo_fk
-    inner join tipo as t on t.tipo_id=m.tipo_fk
-    where info_id = {$id}";
+    $query = "select i.*, m.*, t.*,f.* from informacao i
+              join modelo m on m.modelo_id = i.modelo_fk
+              inner join tipo_fab as tf on tf.id_tipo_fab=m.tipo_fab_fk
+              inner join fabricante as f on f.fab_id = tf.fab_fk
+              inner join tipo as t on t.tipo_id = tf.tipo_fk
+              where info_id = {$id}";
 
     $resultado = mysqli_query($this->conexao, $query);
     $informacao_buscada = mysqli_fetch_assoc($resultado);
 
     $modelo = new Modelo();
     $tipo = new Tipo();
-    //$fabricante = new Fabricante();
+    $fabricante = new Fabricante();
 
     $informacao = new Informacao();
     $informacao->info_id = $informacao_buscada['info_id'];
@@ -99,9 +97,9 @@
     $informacao->tipo = $tipo;
     $informacao->tipo->tipo_id = $informacao_buscada['tipo_id'];
     $informacao->tipo->tipo_nome = $informacao_buscada['tipo_nome'];
-    //$informacao->fabricante = $fabricante;
-    //$informacao->fabricante->fab_id = $informacao_buscada['fab_id'];
-    //$informacao->fabricante->fab_nome = $informacao_buscada['fab_nome'];
+    $informacao->fabricante = $fabricante;
+    $informacao->fabricante->fab_id = $informacao_buscada['fab_id'];
+    $informacao->fabricante->fab_nome = $informacao_buscada['fab_nome'];
 
     return $informacao;
 

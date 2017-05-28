@@ -1,17 +1,4 @@
   <tr>
-    <td>Fabricante</td>
-    <td>
-      <select class="form-control" name="fab_id">
-        <?php foreach ($fabricantes as $fabricante):
-          $fabricanteSelecionado = $informacao->fabricante->fab_id == $fabricante->fab_id;
-          $selecaoFabricante = $fabricanteSelecionado ? "selected='selected'" : "";?>
-
-          <option value="<?=$fabricante->fab_id?>"<?=$selecaoFabricante?>><?=$fabricante->fab_nome?></option>
-        <?php  endforeach ?>
-      </select>
-    </td>
-  </tr>
-  <tr>
     <td>Equipamento</td>
     <td>
       <select class="form-control" name="equip_id">
@@ -34,6 +21,19 @@
           $selecaoTipo = $tipoSelecionado ? "selected='selected'" : "";?>
 
           <option value="<?=$tipo->tipo_id?>"<?=$selecaoTipo?>><?=$tipo->tipo_nome?></option>
+        <?php  endforeach ?>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Fabricante</td>
+    <td>
+      <select class="form-control" name="fab_id">
+        <?php foreach ($fabricantes as $fabricante):
+          $fabricanteSelecionado = $informacao->fabricante->fab_id == $fabricante->fab_id;
+          $selecaoFabricante = $fabricanteSelecionado ? "selected='selected'" : "";?>
+
+          <option value="<?=$fabricante->fab_id?>"<?=$selecaoFabricante?>><?=$fabricante->fab_nome?></option>
         <?php  endforeach ?>
       </select>
     </td>

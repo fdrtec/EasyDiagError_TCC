@@ -1,6 +1,5 @@
 <?php require_once('view/cabecalho.php');
       require_once('logica-usuario.php');
-      require_once('banco-fabricante.php');
 
       verificaUsuario();
 
@@ -25,8 +24,9 @@
       $equipamentoDao = new EquipamentoDao($conexao);
       $equipamentos = $equipamentoDao->listaEquipamento();
 
-
-      $fabricantes = listaFabricante($conexao);
+      $fabricanteDao = new FabricanteDao($conexao);
+      $fabricantes = $fabricanteDao->listaFabricante();
+    
  ?>
 
 <h3><b>Formulário de Inserção para novas
