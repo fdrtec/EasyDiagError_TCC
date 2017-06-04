@@ -1,5 +1,4 @@
 <?php include('view/cabecalho.php');
-      include('banco-fabricante.php');
       include('logica-usuario.php');
 
 
@@ -7,6 +6,7 @@ $informacaoDao = new InformacaoDao($conexao);
 $modeloDao = new ModeloDao($conexao);
 $tipoDao = new TipoDao($conexao);
 $equipamentoDao = new EquipamentoDao($conexao);
+$fabricanteDao = new FabricanteDao($conexao);
 
 
 $info_id =  $_GET['info_id'];
@@ -16,7 +16,7 @@ $informacao = $informacaoDao->buscaInformacao($info_id);
 $modelos = $modeloDao->listaModelo();
 $tipos = $tipoDao->listaTipo();
 $equipamentos = $equipamentoDao->listaEquipamento();
-$fabricantes = listaFabricante($conexao);
+$fabricantes = $fabricanteDao->listaFabricante();
 
 
 
