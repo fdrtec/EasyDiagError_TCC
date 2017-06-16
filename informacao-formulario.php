@@ -26,7 +26,7 @@
 
       $fabricanteDao = new FabricanteDao($conexao);
       $fabricantes = $fabricanteDao->listaFabricante();
-    
+
  ?>
 
 <h3><b>Formulário de Inserção para novas

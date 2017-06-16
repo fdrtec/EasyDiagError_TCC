@@ -27,25 +27,36 @@ $resultado = mysqli_query($conexao, $sql);
 ?>
 <table class="table table-striped table-bordered">
   <tr style="background: black; color:white">
+    <td><b>Equip</b></td>
     <td><b>Tipo</b></td>
+    <td><b>Fabricante</b></td>
     <td><b>Modelo</b></td>
-    <td><b>Defeito</b></td>
+    <td><b>Erro</b></td>
+    <td><b>Descrição</b></td>
     <td><b>Solução</b></td>
     <td><b>Código da Peca</b></td>
     <td><b>Descrição da peça</b></td>
+    <td><b>Inclusão</b></td>
   </tr>
 <?php
   while($linha = mysqli_fetch_assoc($resultado)){
 
   ?>
     <tr>
+      <td><?= $linha["equipamento"] ?></td>
       <td><?= $linha["tipo"] ?></td>
+      <td><?= $linha["fabricante"] ?></td>
       <td><?= $linha["modelo"] ?></td>
-      <td><?= $linha["defeito"] ?></td>
+      <td><?= $linha["erro"] ?></td>
+      <td><?= $linha["descricao"] ?></td>
       <td><?= $linha["solucao"] ?></td>
       <td><?= $linha["codPeca"] ?></td>
       <td><?= $linha["descricaoPeca"] ?></td>
-      
+      <td><a class="btn btn-primary"
+        href="captacao-insere-formulario.php?
+        id=<?=$linha['id']?>">Analisar</a></td>
+
+
     </tr>
   <?php } ?>
 

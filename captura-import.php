@@ -17,22 +17,28 @@ if(!empty ($_FILES['arquivo']['tmp_name'])){
 
   foreach($linhas as $linha){
     if($primeiraLinha == false){
-      $tipo = $linha->getElementsByTagName("Data")->item(0)->nodeValue;
-        echo "Tipo Impressora: $tipo<br>";
-      $modelo = $linha->getElementsByTagName("Data")->item(1)->nodeValue;
+      $equipamento = $linha->getElementsByTagName("Data")->item(0)->nodeValue;
+        echo "Equipamento: $equipamento<br>";
+      $tipo = $linha->getElementsByTagName("Data")->item(1)->nodeValue;
+        echo "Tipo: $tipo<br>";
+      $fabricante = $linha->getElementsByTagName("Data")->item(2)->nodeValue;
+        echo "Fabricante: $fabricante<br>";
+      $modelo = $linha->getElementsByTagName("Data")->item(3)->nodeValue;
         echo "Modelo: $modelo<br>";
-      $defeito= $linha->getElementsByTagName("Data")->item(2)->nodeValue;
-        echo "defeito: $defeito<br>";
-      $solucao = $linha->getElementsByTagName("Data")->item(3)->nodeValue;
+      $erro = $linha->getElementsByTagName("Data")->item(4)->nodeValue;
+        echo "Erro: $erro<br>";
+      $descricao = $linha->getElementsByTagName("Data")->item(5)->nodeValue;
+        echo "Descricao: $descricao<br>";
+      $solucao = $linha->getElementsByTagName("Data")->item(6)->nodeValue;
         echo "Solução: $solucao<br>";
-      $codPeca = $linha->getElementsByTagName("Data")->item(4)->nodeValue;
+      $codPeca = $linha->getElementsByTagName("Data")->item(7)->nodeValue;
         echo "Código Peça: $codPeca<br>";
-      $descricaoPeca = $linha->getElementsByTagName("Data")->item(5)->nodeValue;
+      $descricaoPeca = $linha->getElementsByTagName("Data")->item(8)->nodeValue;
         echo "Descricao da Peca: $descricaoPeca<br>";
       echo "<hr>";
 
-      $result_captacao = "insert into captacao(tipo, modelo, defeito, solucao, codPeca, descricaoPeca)
-      values('$tipo','$modelo','$defeito', '$solucao', '$codPeca', '$descricaoPeca')";
+      $result_captacao = "insert into captacao(equipamento, tipo, fabricante,  modelo, erro , descricao , solucao, codPeca, descricaoPeca)
+      values('$equipamento', '$tipo', '$fabricante', '$modelo' , '$erro','$descricao', '$solucao', '$codPeca', '$descricaoPeca')";
 
       $resultado_captacao = mysqli_query($conexao, $result_captacao);
     }

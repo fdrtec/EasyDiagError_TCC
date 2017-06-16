@@ -2,7 +2,7 @@ body {
   padding-top: 50px;
   background-image: url('images/tec2.jpg');
   background-size: cover;
-  background-size: 
+
 
 
 }
@@ -15,10 +15,11 @@ body {
 .principal {
   padding: 10px 10px;
   text-align: center;
-  background-color: #FFCC99;
+
   /*tamanho do quadro*/
-  width: 1000px;
+  width: 100px;
   margin: auto;
+  background-color: #FFCC99;
   border-radius: 7px;
   margin-top: 50px;
 }
