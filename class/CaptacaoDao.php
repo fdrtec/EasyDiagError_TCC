@@ -74,15 +74,6 @@
     $resultado = mysqli_query($this->conexao, $query);
     $informacao_buscada = mysqli_fetch_assoc($resultado);
 
-
-    $query2= "select i.modelo_fk from informacao i
-                          join modelo m on m.modelo_id = i.modelo_fk
-                          where m.modelo_nome = 'T640'";
-
-    $resultado_modelo_nome = mysqli_query($this->conexao, $query2);
-    $modelo_id_fk = mysqli_fetch_assoc($resultado_modelo_nome);
-    var_dump($modelo_id_fk);
-
     $modelo = new Modelo();
     $tipo = new Tipo();
     $fabricante = new Fabricante();
@@ -105,9 +96,19 @@
     $informacao->equipamento =$equipamento;
     $informacao->equipamento->equip_nome = $informacao_buscada['equipamento'];
 
+    $query2= "select m.modelo_id from modelo m
+              where m.modelo_nome = '{$informacao->modelo->modelo_nome}'";
+
+    $resultado_modelo_nome = mysqli_query($this->conexao, $query2);
+    $modelo_id_fk = mysqli_fetch_assoc($resultado_modelo_nome);
+    var_dump($modelo_id_fk);
+    var_dump($informacao->modelo->modelo_nome);
+
     return $informacao;
 
   }
+
+
 
   // function removeInformacao($id){
   //   $query = "delete from informacao where info_id = {$id}";
