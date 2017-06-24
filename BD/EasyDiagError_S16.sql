@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 28-Maio-2017 às 19:34
+-- Generation Time: 24-Jun-2017 às 03:19
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 7.0.9
 
@@ -28,9 +28,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `captacao` (
   `id` int(11) NOT NULL,
+  `equipamento` varchar(255) NOT NULL,
   `tipo` varchar(255) NOT NULL,
+  `fabricante` varchar(255) NOT NULL,
   `modelo` varchar(255) NOT NULL,
-  `defeito` varchar(255) NOT NULL,
+  `erro` varchar(255) NOT NULL,
+  `descricao` varchar(255) NOT NULL,
   `solucao` varchar(255) NOT NULL,
   `codPeca` varchar(255) NOT NULL,
   `descricaoPeca` varchar(255) NOT NULL
@@ -40,22 +43,22 @@ CREATE TABLE `captacao` (
 -- Extraindo dados da tabela `captacao`
 --
 
-INSERT INTO `captacao` (`id`, `tipo`, `modelo`, `defeito`, `solucao`, `codPeca`, `descricaoPeca`) VALUES
-(31, 'Plotter', 'HP Designjet 110plus nr', 'Falha na cor preta', 'Troca da cabeÃ§a de impressÃ£o', 'C4810A', 'CabeÃ§ote Preto de impressÃ£o '),
-(32, 'Laser', 'HP Laserjet Pro MFP M426dw', 'Painel em branco ao ligar', 'Troca do painel ', 'B3Q10-60139', 'Painel de controle'),
-(33, 'Plotter', 'HP Designjet T120', 'Erro ao alinhar cabeÃ§ote de impressÃ£o', 'Troca da cabeÃ§a de impressÃ£o', 'C1Q10A', 'CabeÃ§a de impressÃ£o'),
-(34, 'Laser', 'HP Laserjet M1132 MFP', 'Erro E8 no painel', 'Troca da leitora', 'CE847-60108', 'Leitora do mÃ³dulo de cÃ³pias'),
-(35, 'Laser', 'HP Laserjet Pro 400 M425', 'Falha no ADF', 'Troca do ADF', 'CF288-60029', 'Alimentador de Documentos'),
-(36, 'Laser', 'HP Laserjet Enterprise M605', 'Erro 98.00', 'Troca da placa EMMC', 'B5L32-60001', 'Placa EMMC'),
-(37, 'Laser', 'HP Laserjet Pro MFP M426dw', 'ImpressÃ£o falhada', 'Troca da placa LVPS', 'RM2-8518', 'Placa fonte de baixa tensÃ£o'),
-(38, 'Laser', 'HP Laserjet P2014', 'NÃ£o puxa papel pela bandeja MP', 'Troca do rolete tracionador', 'RL1-1525-000CN', 'Rolete tracionador'),
-(39, 'Laser', 'HP Laserjet P2014', 'Barulho no funcionamento', 'Troca da engrenagem de suporte do fusor', 'RC1-3575-000CN', 'Engrenagem com balancim'),
-(40, 'Plotter', 'HP Designjet T520', 'Erro no sistema de tinta', 'Troca da cabeÃ§a de impressÃ£o', 'C1Q10A', 'CabeÃ§a de impressÃ£o'),
-(41, 'Laser', 'HP Laserjet Pro 400 M425', 'Erro 52', 'Troca do Laser Scanner', 'RM1-9135-000CN', 'Laser Scanner'),
-(42, 'Laser', 'HP Color Laserjet CP1525', 'ImpressÃ£o falhada', 'Troca da esteira de transferÃªncia', 'RM1-7866-000CN', 'Esteira de transferÃªncia'),
-(43, 'Laser', 'HP Laserjet P2055', 'Atolamento de papel', 'Troca do fusor', 'RM1-6405-000CN', 'Fusor 110v'),
-(44, 'Laser', 'HP Laserjet Pro 400 M425', 'Falso atolamento no ADF', 'Troca do Alimentador AutomÃ¡tico de Documentos', 'CF288-60029', ' Alimentador AutomÃ¡tico de Documentos'),
-(45, 'Officejet', 'HP Officejet Pro X476', 'Painel touch nÃ£o funciona', 'Troca do painel touchscreen', 'CN461-60002', 'Painel de controle touchscreen');
+INSERT INTO `captacao` (`id`, `equipamento`, `tipo`, `fabricante`, `modelo`, `erro`, `descricao`, `solucao`, `codPeca`, `descricaoPeca`) VALUES
+(166, 'impressora', 'Plotter', 'HP', 'Designjet 110plus nr', 'imprime com falhas', 'Falha na cor preta', 'Troca da cabeÃ§a de impressÃ£o', 'C4810A', 'CabeÃ§ote Preto de impressÃ£o '),
+(167, 'impressora', 'Laser', 'HP', 'Laserjet Pro MFP M426dw', 'Painel sem informaÃ§Ãµes', 'Painel em branco ao ligar', 'Troca do painel ', 'B3Q10-60139', 'Painel de controle'),
+(168, 'impressora', 'Plotter', 'HP', 'Designjet T120', 'NÃ£o completa alinhamento', 'cabeÃ§ote de impressÃ£o danificado', 'Troca da cabeÃ§a de impressÃ£o', 'C1Q10A', 'CabeÃ§a de impressÃ£o'),
+(169, 'impressora', 'Laser', 'HP', 'Laserjet M1132 MFP', 'E8', 'Leitora danificada', 'Troca da leitora', 'CE847-60108', 'Leitora do mÃ³dulo de cÃ³pias'),
+(170, 'impressora', 'Laser', 'HP', 'Laserjet Pro 400 M425', 'Acusa erro no ADF', 'Falha no ADF', 'Troca do ADF', 'CF288-60029', 'Alimentador de Documentos'),
+(171, 'impressora', 'Laser', 'HP', 'Laserjet Enterprise M605', '98.00', 'Placa EMMC sem comunicaÃ§Ã£o', 'Troca da placa EMMC', 'B5L32-60001', 'Placa EMMC'),
+(172, 'impressora', 'Laser', 'HP', 'Laserjet Pro MFP M426dw', 'ImpressÃ£o falhada', 'falta de polarizaÃ§Ã£o', 'Troca da placa LVPS', 'RM2-8518', 'Placa fonte de baixa tensÃ£o'),
+(173, 'impressora', 'Laser', 'HP', 'Laserjet P2014', 'NÃ£o puxa papel pela bandeja MP', 'rolete tracionado gasto', 'Troca do rolete tracionador', 'RL1-1525-000CN', 'Rolete tracionador'),
+(174, 'impressora', 'Laser', 'HP', 'Laserjet P2014', 'Barulho no funcionamento', 'engrenagem fusor gasta', 'Troca da engrenagem de suporte do fusor', 'RC1-3575-000CN', 'Engrenagem com balancim'),
+(175, 'impressora', 'Plotter', 'HP', 'Designjet T520', 'Erro no sistema de tinta', 'CabeÃ§a de impressÃ£o danificada', 'Troca da cabeÃ§a de impressÃ£o', 'C1Q10A', 'CabeÃ§a de impressÃ£o'),
+(176, 'impressora', 'Laser', 'HP', 'Laserjet Pro 400 M425', 'Erro 52', 'laser scanner pifado', 'Troca do Laser Scanner', 'RM1-9135-000CN', 'Laser Scanner'),
+(177, 'impressora', 'Laser', 'HP', 'Color Laserjet CP1525', 'ImpressÃ£o falhada', 'Fita da esteira marcada', 'Troca da esteira de transferÃªncia', 'RM1-7866-000CN', 'Esteira de transferÃªncia'),
+(178, 'impressora', 'Laser', 'HP', 'Laserjet P2055', 'Atolamento de papel', 'Pelicula nÃ£o gira', 'Troca do fusor', 'RM1-6405-000CN', 'Fusor 110v'),
+(179, 'impressora', 'Laser', 'HP', 'Laserjet Pro 400 M425', 'Falso atolamento no ADF', 'falha na comunicacao dos sensores', 'Troca do Alimentador AutomÃ¡tico de Documentos', 'CF288-60029', 'Alimentador AutomÃ¡tico de Documentos'),
+(180, 'impressora', 'Jato de Tinta', 'HP', 'Officejet Pro X476', 'Painel touch nÃ£o funciona', 'Painel inoperante', 'Troca do painel touchscreen', 'CN461-60002', 'Painel de controle touchscreen');
 
 -- --------------------------------------------------------
 
@@ -140,7 +143,8 @@ INSERT INTO `informacao` (`info_id`, `erro`, `descricao`, `solucao`, `modelo_fk`
 (71, 'Embola papel na bandeja', 'Ao puxar folhas embola papel na parte traseira da bandeja            ', 'Fazer ajuste nas travas traseiras para que a bandeja encaixe perfeitamente no fundo            ', 6, 0),
 (73, 'Carro travado', 'Correia arrebentada            ', 'Trocar Correia (observaÃ§Ã£o cuidar com o tamanho A0 ou A1)                  ', 7, 0),
 (77, '900', 'Erro generico de comunicaÃ§Ã£o entre placas (mau contatos no slot)            ', 'tirar a placa controle do slot e passar limpa contato                   ', 12, 0),
-(82, 'Faixa preta na digitalizaÃ§Ã£o e na cÃ³pia', 'Ao digitalizar uma  folha no scanner de mesa, o resultado Ã© um risco vertical preto em toda copia      ', 'Trocar o flat cable quebrado', 13, 0);
+(82, 'Faixa preta na digitalizaÃ§Ã£o e na cÃ³pia', 'Ao digitalizar uma  folha no scanner de mesa, o resultado Ã© um risco vertical preto em toda copia      ', 'Trocar o flat cable quebrado', 13, 0),
+(83, 'NÃ£o puxa papel', '   Tracionadores de papel gastos', '      Abra a gaveta, e verifique o estado dos roles no eixo coletor, se as borrachas estiverem lisa, solicite a troca', 14, 0);
 
 -- --------------------------------------------------------
 
@@ -171,7 +175,9 @@ INSERT INTO `modelo` (`modelo_id`, `modelo_nome`, `tipo_fab_fk`) VALUES
 (10, 'MFP 2727', 4),
 (11, 'MFP 4345', 4),
 (12, 'T640', 6),
-(13, 'X1100', 2);
+(13, 'X1100', 2),
+(14, 'E332', 2),
+(15, 'Laserjet P2014', 4);
 
 -- --------------------------------------------------------
 
@@ -390,7 +396,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `captacao`
 --
 ALTER TABLE `captacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 --
 -- AUTO_INCREMENT for table `equipamento`
 --
@@ -405,12 +411,12 @@ ALTER TABLE `fabricante`
 -- AUTO_INCREMENT for table `informacao`
 --
 ALTER TABLE `informacao`
-  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `modelo`
 --
 ALTER TABLE `modelo`
-  MODIFY `modelo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `modelo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `peca`
 --

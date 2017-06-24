@@ -33,7 +33,7 @@ require_once("conecta.php");
             <li><a href="informacao-lista.php">Lista de Informações</a></li>
             <li><a href="informacao-formulario.php">Adição de Informações</a></li>
             <li><a href="captura-formulario.php">Captação de Dados</a></li>
-            <li><a href="selecao.php">Select Categorias</a></li>
+            <!-- <li><a href="selecao.php">Select Categorias</a></li> -->
 
           </ul>
         </div>

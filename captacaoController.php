@@ -17,7 +17,7 @@
 
 if($_POST['modelo_id']){
   if($captacaoDao->insereInformacao($informacao)){ ?>
-    <h3><b>Sua dica foi aceita e adicionada no modelo <?= $informacao->modelo->modelo_nome; ?><b></h3><br>
+    <h3><b>Sua dica aceita e adicionada no modelo <?= $informacao->modelo->modelo_nome; ?><b></h3><br>
         <p class="text-success">
           Descrição do Erro: <?= $informacao->erro; ?><br>
           Informação: <?= $informacao->descricao; ?><br></p>
