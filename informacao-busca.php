@@ -19,27 +19,7 @@
  ?>
 
  <h3><b>Buscador de informações</b></h3>
- <h3><b>Encontre a sua dica nos buscadores abaixo</b></h3>
-
-
- <form action="busca-resultado.php" method="post">
-   <table>
-     <tr>
-      <td>
-        <select class="form-control" name="fab_id">
-          <option value="">Informe o Fabricante</option>
-          <?php foreach ($fabricantes as $fabricante): ?>
-            <option value="<?=$fabricante->fab_id?>"><?=$fabricante->fab_nome?></option>
-          <?php endforeach ?>
-        </select>
-      </td>
-      <td>
-        <button class="btn btn-primary" type="submit">Buscar por fabricante</button>
-      </td>
-    </tr>
-
- </table>
- </form>
+ <h2><b>Principal</b></h2>
 
  <form action="busca-resultado.php" method="post">
    <table>
@@ -60,6 +40,27 @@
 
  </table>
  </form>
+
+<h2><b>Auxiliares</b></h3>
+ <form action="busca-resultado.php" method="post">
+   <table>
+     <tr>
+      <td>
+        <select class="form-control" name="fab_id">
+          <option value="">Informe o Fabricante</option>
+          <?php foreach ($fabricantes as $fabricante): ?>
+            <option value="<?=$fabricante->fab_id?>"><?=$fabricante->fab_nome?></option>
+          <?php endforeach ?>
+        </select>
+      </td>
+      <td>
+        <button class="btn btn-primary" type="submit">Buscar por fabricante</button>
+      </td>
+    </tr>
+
+ </table>
+ </form>
+
 
  <form action="busca-resultado.php" method="post">
    <table>

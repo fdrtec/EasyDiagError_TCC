@@ -12,7 +12,12 @@ verificaUsuario();
   <input class="form-control"type="hidden" name="MAXI_FILE_SIZE" value="2000000"/>
 
   <h2>Captação de dados</h2>
-  <label><h3>Insira um arquivo de tabela excel no formato XML</h3></label>
+
+
+  <label><h4>Instruções: Faça o download da tabela padrão excel <a href="listaExcel/modelo tabela de defeitos.zip">AQUI</a></h3>
+  Inclua os novos dados no arquivo usando uma suite de escritório (ex: Excel do pacote Office)<br>
+  Ao terminar salve seu trabalho numa copia de extensão XML</label>
+  <label><h3>Busque seu arquivo XML (Conteúdo da Tabela excel) e faça o upload</h3></label>
   <table>
     <tr>
       <td><input class="form-control" type="file" name="arquivo"></td>
